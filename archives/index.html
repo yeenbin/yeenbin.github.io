@@ -194,31 +194,9 @@
 <li>引入AFSecurityPolicy保证请求安全</li>
 <li>引入AFNetworkReachablityManager监控网络状态</li>
 </ul>
-<ul>
-<li>发送一个Get方式的HTTP请求</li>
-</ul>
-<h4 id="SDWebImage"><a href="#SDWebImage" class="headerlink" title="SDWebImage"></a>SDWebImage</h4><p>一个一步下载图片并且支持缓存的框架</p>
-<p><img src="/images/image-20200415171723618.png" alt=" "></p>
-<p><img src="/images/image-20200415171945992.png" alt=" "></p>
-<h3 id="函数响应式编程框架ReactiveCocoa"><a href="#函数响应式编程框架ReactiveCocoa" class="headerlink" title="函数响应式编程框架ReactiveCocoa"></a>函数响应式编程框架ReactiveCocoa</h3><p><img src="/images/image-20200415172120079.png" alt=" "></p>
-<p>核心类RACSignal</p>
-<p><img src="/images/image-20200415172226134.png" alt=" "></p>
-<p><img src="/images/image-20200415172419462.png" alt=" "></p>
-<p>信号代表一连串的状态</p>
-<p><img src="/images/image-20200415172507751.png" alt=" "></p>
-<p><img src="/images/image-20200415173516703.png" alt=" "></p>
-<p><img src="/images/image-20200415174349756.png" alt=" "></p>
-<p>###AsyncDisplayKit框架</p>
-<p>提升iOS界面渲染性能的一个框架</p>
-<p>主要处理问题：</p>
-<ul>
-<li>解决布局耗时计算</li>
-<li><img src="/images/image-20200415175002455.png" alt=" "></li>
-<li>减轻主线程的压力，能挪到子线程的都挪到子线程操作</li>
-</ul>
-<h4 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h4><p><img src="/images/image-20200415175241678.png" alt=" "></p>
-<p><img src="/images/image-20200415175410867.png" alt=" "></p>
-
+    
+    <a class="article-more-a" href="/2020/04/15/iOS%E9%9D%A2%E8%AF%95-%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -294,21 +272,9 @@
     
     <p><img src="/images/image-20200413115700666.png" alt=" "></p>
 <p>给定字符串”Hello，world”，实现将其反转</p>
-<h3 id="链表反转"><a href="#链表反转" class="headerlink" title="链表反转"></a>链表反转</h3><p><img src="/images/image-20200413165945151.png" alt=" "></p>
-<p><img src="/images/image-20200413170437741.png" alt=" "></p>
-<p>###Hash算法</p>
-<p><img src="/images/image-20200414172505514.png" alt=" "></p>
-<p><img src="/images/image-20200414172605581.png" alt=" "></p>
-<p><img src="/images/image-20200414172725075.png" alt=" "></p>
-<h4 id="查找2个子视图的共同父视图"><a href="#查找2个子视图的共同父视图" class="headerlink" title="查找2个子视图的共同父视图"></a>查找2个子视图的共同父视图</h4><p><img src="/images/image-20200414175122975.png" alt=" "></p>
-<p><img src="/images/image-20200415073159403.png" alt=" "></p>
-<h3 id="利用快排思想"><a href="#利用快排思想" class="headerlink" title="利用快排思想"></a>利用快排思想</h3><p><img src="/images/image-20200415073409870.png" alt=" "></p>
-<p><img src="/images/image-20200415073546746.png" alt=" "></p>
-<h4 id="算法面试总结"><a href="#算法面试总结" class="headerlink" title="算法面试总结"></a>算法面试总结</h4><p><em>链表反转</em></p>
-<p>有序数组合并</p>
-<p>Hash算法</p>
-<p><em>查找两个子视图的共同父视图</em></p>
-
+    
+    <a class="article-more-a" href="/2020/04/13/iOS%E9%9D%A2%E8%AF%95%20-%20%E7%AE%97%E6%B3%95%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -390,93 +356,9 @@
 <li>减低代码重合度</li>
 </ul>
 <p><img src="/images/image-20200413070940264.png" alt=" "></p>
-<p>图片通过什么方式进行读写，过程是怎样的？</p>
-<ul>
-<li>以图片URL的单向Hash值作为Key</li>
-</ul>
-<p><img src="/images/image-20200413071216152.png" alt=" "></p>
-<p>借鉴系统关于多级缓存的思想，引入了内存模块，提高查找效率，节省流量。</p>
-<h4 id="内存的设计上需要考虑哪些问题？"><a href="#内存的设计上需要考虑哪些问题？" class="headerlink" title="内存的设计上需要考虑哪些问题？"></a>内存的设计上需要考虑哪些问题？</h4><ul>
-<li><p>存储的Size</p>
-<ul>
-<li>50 x 10kb</li>
-<li>20  x 100kb</li>
-<li>10  x 100kb</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20200413071810848.png" alt=" "></p>
-<ul>
-<li><p>淘汰策略</p>
-<ul>
-<li>以队列先进先出的方式淘汰</li>
-<li>LRU算法(如30分钟之内是否使用过)<ul>
-<li><img src="/images/image-20200413072257756.png" alt=" "></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="磁盘设计需要考虑哪些问题？"><a href="#磁盘设计需要考虑哪些问题？" class="headerlink" title="磁盘设计需要考虑哪些问题？"></a>磁盘设计需要考虑哪些问题？</h4><p>空间大，读取效率低</p>
-<ul>
-<li>存储方式</li>
-<li>大小限制(如100MB)</li>
-<li>淘汰策略(如某一图片存储时间距今已超过7天)</li>
-</ul>
-<h4 id="网络部分的设计需要考虑哪些问题？"><a href="#网络部分的设计需要考虑哪些问题？" class="headerlink" title="网络部分的设计需要考虑哪些问题？"></a>网络部分的设计需要考虑哪些问题？</h4><ul>
-<li>图片请求的最大并发量</li>
-<li>请求的超时策略</li>
-<li>请求优先级</li>
-</ul>
-<h4 id="图片解码"><a href="#图片解码" class="headerlink" title="图片解码"></a>图片解码</h4><p>对于不同格式的图片，解码采用什么方式来做？</p>
-<ul>
-<li>应用策略模式对不同图片格式进行解码</li>
-<li>在哪个阶段做图片解码处理？<ul>
-<li>磁盘读取后</li>
-<li>网络请求返回后</li>
-</ul>
-</li>
-</ul>
-<h4 id="线程处理"><a href="#线程处理" class="headerlink" title="线程处理"></a>线程处理</h4><p><img src="/images/image-20200413073358320.png" alt=" "></p>
-<h3 id="阅读时长统计框架"><a href="#阅读时长统计框架" class="headerlink" title="阅读时长统计框架"></a>阅读时长统计框架</h3><p><img src="/images/image-20200413073834416.png" alt=" "></p>
-<h4 id="为何要有不同类型的记录器"><a href="#为何要有不同类型的记录器" class="headerlink" title="为何要有不同类型的记录器"></a>为何要有不同类型的记录器</h4><ul>
-<li>基于不同分类场景提供的关于记录的封装、适配</li>
-</ul>
-<h4 id="记录的数据会由于某种原因丢失，怎么处理？"><a href="#记录的数据会由于某种原因丢失，怎么处理？" class="headerlink" title="记录的数据会由于某种原因丢失，怎么处理？"></a>记录的数据会由于某种原因丢失，怎么处理？</h4><ul>
-<li>定时写磁盘</li>
-<li>限定内存缓存条数(10条)，超过该条数，即写磁盘</li>
-</ul>
-<h3 id="记录上传器"><a href="#记录上传器" class="headerlink" title="记录上传器"></a>记录上传器</h3><p>关于延时上传的具体场景有哪些</p>
-<ul>
-<li>前后台切换</li>
-<li>从无网到有网的变化</li>
-<li>通用轻量接口捎带</li>
-</ul>
-<p>长传时机怎么把控的？</p>
-<ul>
-<li>立刻上传</li>
-<li>延时上传</li>
-<li>定时上传</li>
-</ul>
-<h3 id="客服端复杂页面架构总结"><a href="#客服端复杂页面架构总结" class="headerlink" title="客服端复杂页面架构总结"></a>客服端复杂页面架构总结</h3><ul>
-<li>MVVM框架思想</li>
-<li>ReactNative的数据流思想</li>
-<li>系统UIView更新机制的思想</li>
-<li>FaceBook的开源框架AsyncDisplayKit关于预排版的设计思想</li>
-</ul>
-<p><img src="/images/image-20200413114105847.png" alt=" "></p>
-<p><img src="/images/image-20200413114251821.png" alt=" "></p>
-<p>任何一个子节点或者子孙节点没权利做自己做更新，必须把自己要更新的消息发送给根节点，</p>
-<p>然后遍历找到子节点更新，反向更新机制，由被动变为主动。</p>
-<h4 id="客户端整体架构"><a href="#客户端整体架构" class="headerlink" title="客户端整体架构"></a>客户端整体架构</h4><p>你会怎么设计客户端整体架构</p>
-<p><img src="/images/image-20200413114756958.png" alt=" "></p>
-<p>上层可以依赖下层，下层不能依赖上层。</p>
-<h4 id="业务之间的解耦通信方式"><a href="#业务之间的解耦通信方式" class="headerlink" title="业务之间的解耦通信方式"></a>业务之间的解耦通信方式</h4><ul>
-<li>openURL</li>
-<li>依赖注入</li>
-</ul>
-<p><img src="/images/image-20200413114959344.png" alt=" "></p>
-
+    
+    <a class="article-more-a" href="/2020/04/12/iOS%E9%9D%A2%E8%AF%95-%E6%9E%B6%E6%9E%84:%E6%A1%86%E6%9E%B6%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -553,52 +435,10 @@
     <p><img src="/images/image-20200412201954765.png" alt=" "></p>
 <p><img src="/images/image-20200412202043418.png" alt=" "></p>
 <h4 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h4><ul>
-<li>一个类只负责一件事情，例如UIView 和CALayer</li>
-</ul>
-<h4 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h4><ul>
-<li>对修改关闭，对扩展开放</li>
-</ul>
-<h4 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h4><ul>
-<li>使用多个专门的协议、而不是一个庞大臃肿的协议，例如UITableView的DataSource和Delegate</li>
-</ul>
-<h4 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h4><ul>
-<li>抽象不应该依赖于具体实现，具体实现可以依赖于抽象</li>
-<li>例如增删改查方法</li>
-</ul>
-<h4 id="里式替换原则"><a href="#里式替换原则" class="headerlink" title="里式替换原则"></a>里式替换原则</h4><ul>
-<li>父类可以被子类无缝替换，且原有功能不受任何影响，例如KVO</li>
-</ul>
-<h4 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h4><ul>
-<li>一个对象应当对其他对象有尽可能少的了解</li>
-<li>高内聚、低耦合</li>
-</ul>
-<h3 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h3><p><img src="/images/image-20200412202921293.png" alt=" "></p>
-<p>责任链构成： 一个类拥有自己同类的成员变量</p>
-<p><img src="/images/image-20200412204001438.png" alt=" "></p>
-<p><img src="/images/image-20200412204048962.png" alt=" "></p>
-<p><img src="/images/image-20200412204105304.png" alt=" "></p>
-<h3 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h3><p><img src="/images/image-20200412204218743.png" alt=" "></p>
-<p><img src="/images/image-20200412204526494.png" alt=" "></p>
-<p><img src="/images/image-20200412205415319.png" alt=" "></p>
-<h3 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h3><ul>
-<li><p>对象适配器</p>
-</li>
-<li><p>类适配器</p>
-</li>
-</ul>
-<p><img src="/images/image-20200412205617513.png" alt=" "></p>
-<p>问题：一个现有类需要适应变化的问题？</p>
-<p><img src="/images/image-20200412205738570.png" alt=" "></p>
-<h3 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h3><p>你可能用的并不正确的模式</p>
-<p><img src="/images/image-20200412210102204.png" alt=" "><br><img src="/images/image-20200412210110422.png" alt=" "></p>
-<h3 id="命令设计模式"><a href="#命令设计模式" class="headerlink" title="命令设计模式"></a>命令设计模式</h3><p>行为参数化</p>
-<p>降低代码重合度</p>
-<p><img src="/images/image-20200412210902253.png" alt=" "></p>
-<h4 id="设计模式面试总结"><a href="#设计模式面试总结" class="headerlink" title="设计模式面试总结"></a>设计模式面试总结</h4><p>1.请手写单例实现</p>
-<p>2.你都知道哪些设计原则，请谈谈你的理解</p>
-<p>3.能否用一副图简单的表示桥接模式的主题结构</p>
-<p>4.UI事件传递机制是怎样实现的？你对其中运用到的设计模式是怎样理解的？</p>
-
+<li><p>一个类只负责一件事情，例如UIView 和CALayer</p>
+    
+    <a class="article-more-a" href="/2020/04/12/iOS%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -675,205 +515,10 @@
     <p><img src="/images/image-20200411224146188.png" alt=" "></p>
 <h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><p>超文本传输协议</p>
 <ul>
-<li>请求/响应报文</li>
-</ul>
-<p><img src="/images/image-20200411224400735.png" alt=" "></p>
-<p> <img src="/images/image-20200411224512326.png" alt=" "></p>
-<ul>
-<li>GET</li>
-<li>POST</li>
-<li>HEAD</li>
-<li>PUT</li>
-<li>DELETE</li>
-<li>OPTIONS</li>
-</ul>
-<ul>
-<li><p>链接建立流程</p>
-</li>
-<li><p>HTTP的特点</p>
-</li>
-</ul>
-<h4 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h4><p>从语义的角度来回答</p>
-<p><img src="/images/image-20200411224846401.png" alt=" "></p>
-<p>安全性：不应该引起server端的任何状态变化 GET、HEAD、OPTION</p>
-<p>幂等性：同一个请求方法执行多次和执行一次的效果完全相同的 GET、PUT、DELETE</p>
-<p>可缓存性：GET、HEAD</p>
-<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p><img src="/images/image-20200411225247613.png" alt=" "></p>
-<p>200：响应成功</p>
-<p>301、302 发生网络重定向</p>
-<p>401、404 客户端发起的请求存在问题</p>
-<p>501、502 server端可能发生问题</p>
-<h4 id="连接建立流程"><a href="#连接建立流程" class="headerlink" title="连接建立流程"></a>连接建立流程</h4><p><img src="/images/image-20200411225737698.png" alt=" "></p>
-<h4 id="HTTP的特点"><a href="#HTTP的特点" class="headerlink" title="HTTP的特点"></a>HTTP的特点</h4><p>无连接</p>
-<ul>
-<li>HTTP的持久连接</li>
-</ul>
-<p>无状态</p>
-<ul>
-<li>Coolie/Session</li>
-</ul>
-<p><img src="/images/image-20200411230347828.png" alt=" "></p>
-<p>头部字段</p>
-<ul>
-<li>Connection ：keep-alive</li>
-<li>time : 20</li>
-<li>max : 10</li>
-</ul>
-<p>怎样判断一个请求是否结束的？ </p>
-<ul>
-<li>Content-lenght：1024</li>
-<li>chunked，最后会有一个空的chunked</li>
-</ul>
-<h4 id="Charles抓包原理是怎样的？"><a href="#Charles抓包原理是怎样的？" class="headerlink" title="Charles抓包原理是怎样的？"></a>Charles抓包原理是怎样的？</h4><p> 利用了HTTP的中间人攻击</p>
-<p><img src="/images/image-20200411231019051.png" alt=" "></p>
-<h4 id="HTTPS与网络安全"><a href="#HTTPS与网络安全" class="headerlink" title="HTTPS与网络安全"></a>HTTPS与网络安全</h4><h5 id="HTTPS和HTTP有怎样的区别"><a href="#HTTPS和HTTP有怎样的区别" class="headerlink" title="HTTPS和HTTP有怎样的区别"></a>HTTPS和HTTP有怎样的区别</h5><ul>
-<li>HTTPS = HTTP + SSL/TLS</li>
-</ul>
-<p><img src="/images/image-20200411231243669.png" alt=" "></p>
-<p>应用层之下传输层之上的SSL/TLS</p>
-<h4 id="HTTPS的连接建立流程-主要考察安全是怎么保障"><a href="#HTTPS的连接建立流程-主要考察安全是怎么保障" class="headerlink" title="HTTPS的连接建立流程(主要考察安全是怎么保障)"></a>HTTPS的连接建立流程(主要考察安全是怎么保障)</h4><p><img src="/images/image-20200411231654579.png" alt=" "></p>
-<p>会话秘钥 = 随机数 S + 随机数 C + 预主秘钥</p>
-<h4 id="HTTPS都使用了哪些加密手段？为什么？"><a href="#HTTPS都使用了哪些加密手段？为什么？" class="headerlink" title="HTTPS都使用了哪些加密手段？为什么？"></a>HTTPS都使用了哪些加密手段？为什么？</h4><ul>
-<li>连接建立过程使用非对称加密，非对称加密很耗时的!</li>
-<li>后续通信使用对称加密</li>
-</ul>
-<h4 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h4><p><img src="/images/image-20200411232035126.png" alt=" "></p>
-<ul>
-<li><p>加密和解密所使用钥不同，公钥和私钥</p>
-</li>
-<li><p>非对称加密安全性比对称加密更高</p>
-</li>
-</ul>
-<h4 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h4><p><img src="/images/image-20200411232155972.png" alt=" "></p>
-<ul>
-<li>加密和解密是使用同样的钥匙，秘钥</li>
-<li>对称加密不能保证绝对安全</li>
-</ul>
-<h3 id="TCP和UDP"><a href="#TCP和UDP" class="headerlink" title="TCP和UDP"></a>TCP和UDP</h3><p><img src="/images/image-20200411232423613.png" alt=" "></p>
-<h4 id="UDP-用户数据报协议"><a href="#UDP-用户数据报协议" class="headerlink" title="UDP(用户数据报协议)"></a>UDP(用户数据报协议)</h4><ul>
-<li>无连接</li>
-<li>尽最大努力交付</li>
-<li>面向报文<ul>
-<li>既不合并，也不拆分</li>
-<li><img src="/images/image-20200411232732193.png" alt=" "></li>
-</ul>
-</li>
-</ul>
-<p>功能</p>
-<ul>
-<li>复用、分用<br>-<img src="/images/image-20200411233000343.png" alt=" "></li>
-<li>差错检测</li>
-</ul>
-<h3 id="TCP-传输控制协议"><a href="#TCP-传输控制协议" class="headerlink" title="TCP(传输控制协议)"></a>TCP(传输控制协议)</h3><p>特点</p>
-<ul>
-<li>面向连接<ul>
-<li>三次握手<ul>
-<li>为什么要进行三次握手？        <ul>
-<li>如果是两次握手，加入客户端syn报文超时，当server又接到同步报文，server想要发生了2次连接</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>四次挥手</li>
-</ul>
-</li>
-<li>可靠传输<ul>
-<li>无差错</li>
-<li>不丢失</li>
-<li>不重复</li>
-<li>按序到达</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20200412172357690.png" alt=" "></p>
-<p><img src="/images/image-20200412172621495.png" alt=" "></p>
-<p><img src="/images/image-20200412172812171.png" alt=" "></p>
-<p>滑动窗口协议</p>
-<ul>
-<li><p>面向字节流</p>
-<ul>
-<li><img src="/images/image-20200412174158518.png" alt=" "></li>
-</ul>
-</li>
-<li><p>流量控制</p>
-<ul>
-<li>基于滑动窗口协议实现的</li>
-<li><img src="/images/image-20200412175451431.png" alt=" "></li>
-</ul>
-</li>
-<li><p>拥塞控制</p>
-<ul>
-<li>慢开始、拥塞避免</li>
-<li>快恢复、快重传</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20200412180254172.png" alt=" "></p>
-<h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>域名到IP地址的映射，DNS解析请求采用UDP数据报，且明文</p>
-<p><img src="/images/image-20200412194229018.png" alt=" "></p>
-<p><img src="/images/image-20200412194550526.png" alt=" "></p>
-<h4 id="DNS解析存在哪些常见问题"><a href="#DNS解析存在哪些常见问题" class="headerlink" title="DNS解析存在哪些常见问题"></a>DNS解析存在哪些常见问题</h4><ul>
-<li>DNS劫持问题</li>
-<li>DNS解析转发问题</li>
-</ul>
-<p><img src="/images/image-20200412194857866.png" alt=" "></p>
-<p>DNS劫持与HTTP的关系是怎样的？</p>
-<p>没有关系</p>
-<ul>
-<li>DNS解析发生在HTTP建立连接之前</li>
-<li>DNS解析请求使用UDP数据报，端口号53</li>
-</ul>
-<h4 id="DNS解析转发"><a href="#DNS解析转发" class="headerlink" title="DNS解析转发"></a>DNS解析转发</h4><p>怎么解决DNS劫持？</p>
-<ul>
-<li>httpDNS<ul>
-<li><img src="/images/image-20200412195500776.png" alt=" "></li>
-<li><img src="/images/image-20200412195759788.png" alt=" "></li>
-</ul>
-</li>
-<li>长连接<ul>
-<li><img src="/images/image-20200412200012148.png" alt=" "></li>
-</ul>
-</li>
-</ul>
-<h4 id="Session-Cookie"><a href="#Session-Cookie" class="headerlink" title="Session/ Cookie"></a>Session/ Cookie</h4><p>HTTP协议无状态特点的补偿</p>
-<ul>
-<li>Cookie主要用来记录用户状态，区分用户；状态保存在客户端<ul>
-<li>客户端发送的cookie在http请求报文的Cookie首部字段</li>
-<li>服务器端设置http响应报文的Set-Cookie首部字段</li>
-</ul>
-</li>
-<li>服务器设置http响应报文的Set-Cookie首部字段</li>
-</ul>
-<h4 id="怎样修改Cookie？"><a href="#怎样修改Cookie？" class="headerlink" title="怎样修改Cookie？"></a>怎样修改Cookie？</h4><ul>
-<li>新cookie覆盖旧的cookie</li>
-<li>覆盖规则：name、path、domain等需要与原cookie一致</li>
-</ul>
-<h4 id="怎样删除Cookie？"><a href="#怎样删除Cookie？" class="headerlink" title="怎样删除Cookie？"></a>怎样删除Cookie？</h4><ul>
-<li>新cookie覆盖旧cookie</li>
-<li>覆盖规则：name、path、domain等需要与原cookie一致</li>
-<li>设置cookie的expires = 过去的一个时间点，或者maxAge = 0</li>
-</ul>
-<h4 id="怎样保证Cookie的安全？"><a href="#怎样保证Cookie的安全？" class="headerlink" title="怎样保证Cookie的安全？"></a>怎样保证Cookie的安全？</h4><ul>
-<li>对Cookie进行加密处理</li>
-<li>只在https上携带Cookie</li>
-<li>设置Cookie为httpOnly，防止跨站脚本攻击</li>
-</ul>
-<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>Session也是用来记录用户状态，区分用户的，状态存放在服务器端</p>
-<p>Session和Cookie的关系是怎样的？</p>
-<ul>
-<li>Session需要依赖于Cookie机制</li>
-</ul>
-<p>![image-20200412201323291](/Users/yeenbin/Library/Application Support/typora-user-images/image-20200412201323291.png)</p>
-<h4 id="网络相关面试总结"><a href="#网络相关面试总结" class="headerlink" title="网络相关面试总结"></a>网络相关面试总结</h4><p>HTTP的GET和POST方式有什么区别？</p>
-<p>HTTPS连接建立流程是怎样的？</p>
-<p>TCP和UDP有什么区别？</p>
-<p>请简述TCP的慢开始过程？</p>
-<p>客户端怎么样解决DNS劫持？</p>
-<ul>
-<li>httpsDNS</li>
-<li>长链接</li>
-</ul>
-
+<li><p>请求/响应报文</p>
+    
+    <a class="article-more-a" href="/2020/04/11/iOS%E9%9D%A2%E8%AF%95-%E7%BD%91%E7%BB%9C%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -951,80 +596,10 @@
 <p>如何实现一个常驻线程？</p>
 <h4 id="什么是RunLoop"><a href="#什么是RunLoop" class="headerlink" title="什么是RunLoop ?"></a>什么是RunLoop ?</h4><ul>
 <li>RunLoop是通过内部维护的事件循环来对事件/消息进行管理的一个对象。</li>
-<li>事件循环 是没有消息需要处理时，休眠以避免资源占用<ul>
-<li><img src="/images/image-20200411104927847.png" alt=" "></li>
-</ul>
-</li>
-<li>有消息需要处理时，立刻被唤醒<ul>
-<li><img src="/images/image-20200411104937694.png" alt=" "></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20200411105551583.png" alt=" "></p>
-<p> NSRunLoop是CFRunLoop的封装，提供了面向对象的API</p>
-<ul>
-<li>CFRunLoop</li>
-<li>CFRunLoopMode</li>
-<li>Source/Timer/Observer</li>
-</ul>
-<p><img src="/images/image-20200411110324213.png" alt=" "></p>
-<p><img src="/images/image-20200411110523015.png" alt=" "></p>
-<p><img src="/images/image-20200411110530617.png" alt=" "></p>
-<p><img src="/images/image-20200411110454465.png" alt=" "></p>
-<h3 id="CFRunLoopMode"><a href="#CFRunLoopMode" class="headerlink" title="CFRunLoopMode"></a>CFRunLoopMode</h3><p><img src="/images/image-20200411110806091.png" alt=" "></p>
-<p><img src="/images/image-20200411110820516.png" alt=" "></p>
-<p><img src="/images/image-20200411110829209.png" alt=" "></p>
-<h4 id="CFRunLoopSource"><a href="#CFRunLoopSource" class="headerlink" title="CFRunLoopSource"></a>CFRunLoopSource</h4><ul>
-<li>source0<ul>
-<li>需要手动唤醒线程</li>
-</ul>
-</li>
-<li>source1<ul>
-<li>具备唤醒线程的能力</li>
-</ul>
-</li>
-</ul>
-<h3 id="CFRunLoopTimer"><a href="#CFRunLoopTimer" class="headerlink" title="CFRunLoopTimer"></a>CFRunLoopTimer</h3><ul>
-<li>和NSTimer是toll-free bridged的</li>
-</ul>
-<p>###CFRunLoopObserver</p>
-<p>观测时间点</p>
-<ul>
-<li>kCFRunLoopEntry</li>
-<li>kCFRunLoopBeforeTimers</li>
-<li>kCFRunLoopBeforeSources</li>
-<li>kCFRunLoopBeforeWaiting</li>
-<li>kCFRunLoopAfterWaiting</li>
-<li>kCFRunLoopExit</li>
-</ul>
-<p><img src="/images/image-20200411111445583.png" alt=" "></p>
-<p><img src="/images/image-20200411111644188.png" alt=" "></p>
-<h4 id="NSRunLoopCommonModes"><a href="#NSRunLoopCommonModes" class="headerlink" title="NSRunLoopCommonModes"></a>NSRunLoopCommonModes</h4><ul>
-<li>CommonMode不是实际存在的一种Mode</li>
-<li>是同步Source/TimerObserver到多个Mode中的技术解决方案</li>
-</ul>
-<h4 id="事件循环的实现机制"><a href="#事件循环的实现机制" class="headerlink" title="事件循环的实现机制"></a>事件循环的实现机制</h4><p><img src="/images/image-20200411113111942.png" alt=" "></p>
-<p><img src="/images/image-20200411113414543.png" alt=" "></p>
-<h4 id="RunLoop与NSTimer的关系"><a href="#RunLoop与NSTimer的关系" class="headerlink" title="RunLoop与NSTimer的关系"></a>RunLoop与NSTimer的关系</h4><p>滑动TableView的时候我们的定时器还会生效吗？</p>
-<p><img src="/images/image-20200411113557999.png" alt=" "></p>
-<p>如何把NSTimer添加到多个Mode中</p>
-<p><img src="/images/image-20200411113716342.png" alt=" "></p>
-<h4 id="RunLoop和线程之间的关系"><a href="#RunLoop和线程之间的关系" class="headerlink" title="RunLoop和线程之间的关系"></a>RunLoop和线程之间的关系</h4><ul>
-<li>线程是和RunLoop一一对应</li>
-<li>自己创建的线程默认是没有RunLoop</li>
-</ul>
-<p>那么怎么创建一个常驻的线程呢？</p>
-<ul>
-<li>为当前线程开启一个RunLoop</li>
-<li>向该RunLoop中添加一个Port/Source等维护RunLoop的事件循环</li>
-<li>启动该RunLoop</li>
-</ul>
-<p><img src="/images/image-20200411115124127.png" alt=" "></p>
-<h4 id="RunLoop面试总结"><a href="#RunLoop面试总结" class="headerlink" title="RunLoop面试总结"></a>RunLoop面试总结</h4><p>什么是RunLoop，它是怎样做到有事做事，没事休息？</p>
-<p>RunLoop与线程是怎么样的关系？</p>
-<p>如何实现一个常驻线程？</p>
-<p>怎么样保证子线程数据回来更新UI的时候不打断用户的滑动操作？</p>
-
+<li>事件循环 是没有消息需要处理时，休眠以避免资源占用
+    
+    <a class="article-more-a" href="/2020/04/11/iOS%E9%9D%A2%E8%AF%95%20-%20RunLoop%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -1102,80 +677,10 @@
 <ul>
 <li>同步/ 异步和 串行/并发</li>
 <li>dispatch_barrier_async</li>
-<li>dispatch_group</li>
-</ul>
-<p><img src="/images/image-20200410170025763.png" alt=" "></p>
-<p><img src="/images/image-20200410170159307.png" alt=" "></p>
-<p>产生死锁的原因： 队列引起的循环等待</p>
-<p><img src="/images/image-20200410170412363.png" alt=" "></p>
-<p><img src="/images/image-20200410170802808.png" alt=" "></p>
-<p><img src="/images/image-20200410170822920.png" alt=" "></p>
-<p><img src="/images/image-20200410171259285.png" alt=" "></p>
-<h4 id="异步串行"><a href="#异步串行" class="headerlink" title="异步串行"></a>异步串行</h4><p><img src="/images/image-20200410171354271.png" alt=" "></p>
-<p><img src="/images/image-20200410171538520.png" alt=" "></p>
-<p>GCD底层异步并发分派到的线程没有开启runloop 导致performSelector的方法失效</p>
-<h3 id="dispatch-barrier-async"><a href="#dispatch-barrier-async" class="headerlink" title="dispatch_barrier_async()"></a>dispatch_barrier_async()</h3><p>怎么利用GCD实现多读单写？</p>
-<p><img src="/images/image-20200410172040868.png" alt=" "></p>
-<p><img src="/images/image-20200410172456991.png" alt=" "></p>
-<h4 id="dispatch-group-async"><a href="#dispatch-group-async" class="headerlink" title="dispatch_group_async()"></a>dispatch_group_async()</h4><p>使用GCD实现这个需求的：A、B、C三个任务并发，完成后执行任务D</p>
-<p><img src="/images/image-20200410172647200.png" alt=" "></p>
-<p><img src="/images/image-20200410172837627.png" alt=" "></p>
-<h4 id="NSOperation-和NSOperationQueue"><a href="#NSOperation-和NSOperationQueue" class="headerlink" title="NSOperation 和NSOperationQueue"></a>NSOperation 和NSOperationQueue</h4><ul>
-<li>添加任务依赖</li>
-<li>任务执行状态控制<ul>
-<li>isReady</li>
-<li>isExecuting</li>
-<li>isFinished</li>
-<li>isCancelled</li>
-<li>如果只重写main方法，底层控制变量任务执行完成状态，以及任务退出</li>
-<li>如果重写了start方法，自行控制任务状态</li>
-</ul>
-</li>
-<li>可以控制最大并发量</li>
-</ul>
-<p><img src="/images/image-20200410173941420.png" alt=" "></p>
-<h4 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h4><p><img src="/images/image-20200410174325015.png" alt=" "></p>
-<h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><ul>
-<li><p>@synchronized</p>
-<ul>
-<li>一般在创建单例对象的时候使用</li>
-</ul>
-</li>
-<li><p>atomic</p>
-<ul>
-<li>修饰属性的关键字</li>
-<li>对被修饰对象进行原子操作(不负责使用)</li>
-</ul>
-</li>
-<li><p>OSSpinLock</p>
-<ul>
-<li>自旋锁</li>
-<li>循环等待询问，不释放当前资源</li>
-</ul>
-</li>
-<li><p>NSRecursiveLock</p>
-</li>
-<li><p>NSLock </p>
-<ul>
-<li><img src="/images/image-20200411102915373.png" alt=" "></li>
-<li>通过递归锁解决死锁<img src="/images/image-20200411103032075.png" alt=" "></li>
-<li></li>
-</ul>
-</li>
-<li><p>dispatch_semaphore_t  信号量</p>
-<p><img src="/images/image-20200411103254597.png" alt=" "></p>
-</li>
-</ul>
-<p><img src="/images/image-20200411103326683.png" alt=" "></p>
-<p><img src="/images/image-20200411103559997.png" alt=" "></p>
-<p><img src="/images/image-20200411103702884.png" alt=" "></p>
-<h4 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h4><ul>
-<li>怎样用多读单写？</li>
-<li>iOS系统为我们提供的几种多线程技术各自的特点是怎么样？</li>
-<li>NSOperation对象在Finished之后是怎么样从queue当中移除掉的？</li>
-<li>你都用过哪些锁？结合实际谈谈你是怎么样使用的？                         </li>
-</ul>
-
+<li>dispatch_group
+    
+    <a class="article-more-a" href="/2020/04/10/iOS%E9%9D%A2%E8%AF%95-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -1257,63 +762,9 @@
 <h4 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h4><ul>
 <li>使用 clang-rewrite-objc file.m 】</li>
 </ul>
-<h4 id="Block截获比变量"><a href="#Block截获比变量" class="headerlink" title="Block截获比变量"></a>Block截获比变量</h4><ul>
-<li><p>局部变量</p>
-<ul>
-<li>基本数据类型</li>
-<li>对象类型</li>
-</ul>
-</li>
-<li><p>静态局部变量 </p>
-</li>
-<li><p>全局变量</p>
-</li>
-<li><p>静态全局变量的</p>
-</li>
-<li><p>对于基本数据类型的局部变量截获其值</p>
-</li>
-<li><p>对于对象类型的局部变量连同所有权修饰符一起截获</p>
-</li>
-<li><p>Block不捕获全局的变量，截获局部变量，如果是静态局部变量，捕获的值也会随着静态局部碧变量值的改变而改变。 </p>
-</li>
-</ul>
-<p>使用 [   clang -rewrite-objc -fobjc-arc file.m    ] 来解析源码</p>
-<h3 id="Block"><a href="#Block" class="headerlink" title="__Block"></a>__Block</h3><ul>
-<li>对变量进行赋值操作时需要修饰</li>
-<li>对局部变量进行修改需要修饰</li>
-</ul>
-<p><img src="/images/image-20200409151955286.png" alt=" "></p>
-<p><img src="/images/image-20200409152148020.png" alt=" "></p>
-<p>__block修饰的变量变成了对象</p>
-<p><img src="/images/image-20200409152451599.png" alt=" "></p>
-<h4 id="Block的类型"><a href="#Block的类型" class="headerlink" title="Block的类型"></a>Block的类型</h4><ul>
-<li>_NSConcreteGlobalBlock    全局Block</li>
-<li>_NSConcreteStackBlock   栈类型Block</li>
-<li>_NSConcreteMallocBlock  堆类型Block</li>
-</ul>
-<p><img src="/images/image-20200409162617641.png" alt=" "></p>
-<h4 id="Block的Copy操作"><a href="#Block的Copy操作" class="headerlink" title="Block的Copy操作"></a>Block的Copy操作</h4><p><img src="/images/image-20200409162655596.png" alt=" "></p>
-<p>栈上的Block的copy</p>
-<p>栈上的__block变量的</p>
-<p>__forwarding 存在的意义</p>
-<p>不论在任何内存位置，都可以顺利的访问同一个__block变量。</p>
-<p>如果没对Block进行拷贝的话，就是对栈上的__block进行操作</p>
-<p>如果block发生了copy操作之后，不论是在栈上还是堆上，实际上操作的都是堆上的__block 变量</p>
-<h4 id="Block-的循环引用"><a href="#Block-的循环引用" class="headerlink" title="Block 的循环引用"></a>Block 的循环引用</h4><p><img src="/images/image-20200409164406748.png" alt=" "></p>
-<p><img src="/images/image-20200409164457678.png" alt=" "></p>
-<p>为什么使用__weak就能解决循环引用呢？</p>
-<p>如果是对象，block截获对象连同其修饰符</p>
-<p><img src="/images/image-20200409164819868.png" alt=" "></p>
-<ul>
-<li><p>在MRC下，不会产生循环引用</p>
-</li>
-<li><p>在ARC下，会产生循环引用，引起内存泄漏</p>
-<p><img src="/images/image-20200409164956529.png" alt=" "></p>
-</li>
-</ul>
-<p>通过断开__block对对象的持有来解决循环引用</p>
-<p><img src="/images/image-20200409165359224.png" alt=" "></p>
-
+    
+    <a class="article-more-a" href="/2020/04/09/iOS%E9%9D%A2%E8%AF%95---Block%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -1396,124 +847,9 @@
 <li>data：已初始化的全局变量等</li>
 <li>text:  程序代码</li>
 </ul>
-<h4 id="内存管理方案"><a href="#内存管理方案" class="headerlink" title="内存管理方案"></a>内存管理方案</h4><ul>
-<li>TaggedPointer</li>
-<li>NONPOINTER_ISA  非指针型ISA</li>
-<li>散列表</li>
-</ul>
-<h4 id="散列表方式"><a href="#散列表方式" class="headerlink" title="散列表方式"></a>散列表方式</h4><p>SideTables()结构</p>
-<p><img src="/images/image-20200407172859249.png" alt=" "></p>
-<p><img src="/images/image-20200407172827712.png" alt=" "></p>
-<p><img src="/images/image-20200407173713674.png" alt=" "></p>
-<ul>
-<li>Spinlock_t  <ul>
-<li>自旋锁是”忙等”的锁</li>
-<li>适用于轻量访问</li>
-</ul>
-</li>
-<li>RefcountMap 引用计数表</li>
-<li>weak_table_t  弱引用表</li>
-</ul>
-<p><img src="/images/image-20200407174622884.png" alt=" "></p>
-<p>####MRC手动引用计数</p>
-<p><img src="/images/image-20200407174833915.png" alt=" "></p>
-<h4 id="ARC-自动引用计数"><a href="#ARC-自动引用计数" class="headerlink" title="ARC 自动引用计数"></a>ARC 自动引用计数</h4><ul>
-<li>ARC是LLVM编译器和Runtime协作的结果</li>
-<li>ARC禁止手动调用retain/release/retainCount</li>
-<li>ARC中新增weak、strong属性关键字</li>
-</ul>
-<ul>
-<li>alloc实现<ul>
-<li>经过一系列调用，最终调用了C函数calloc</li>
-<li>此时并没有设置引用计数为1</li>
-</ul>
-</li>
-<li>retain实现<ul>
-<li>两次哈希查找，最后执行+1操作</li>
-</ul>
-</li>
-<li>release实现</li>
-<li>retainCount实现</li>
-<li>dealloc实现</li>
-</ul>
-<p><img src="/images/image-20200408131833030.png" alt=" "></p>
-<p><img src="/images/image-20200408131853691.png" alt=" "></p>
-<p><img src="/images/image-20200408132035848.png" alt=" "></p>
-<p>系统会自助判断当前对象是否有关联对象，有的话自动消除</p>
-<p><img src="/images/image-20200408132239224.png" alt=" "></p>
-<h4 id="弱引用管理"><a href="#弱引用管理" class="headerlink" title="弱引用管理"></a>弱引用管理</h4><p><img src="/images/image-20200408133047695.png" alt=" "></p>
-<p><img src="/images/image-20200408151049164.png" alt=" "></p>
-<p>内部实现会调用弱引用指针置为nil</p>
-<h4 id="自动释放池"><a href="#自动释放池" class="headerlink" title="自动释放池"></a>自动释放池</h4><ul>
-<li>是以栈为结点通过双向链表的形式组合而成的数据结构。</li>
-<li>是和线程一一对应的</li>
-</ul>
-<ul>
-<li><p>AutoreleasePool的实现原理是怎样？</p>
-<p><img src="/images/image-20200408152213572.png" alt=" "></p>
-<p><img src="/images/image-20200408152313278.png" alt=" "></p>
-<p><img src="/images/image-20200408152344603.png" alt=" "></p>
-</li>
-</ul>
-<p>​                </p>
-<ul>
-<li>AutoreleasePool</li>
-</ul>
-<p><img src="/images/image-20200408152731395.png" alt=" "></p>
-<p><img src="/images/image-20200408153301606.png" alt=" "></p>
-<p><img src="/images/image-20200408153551003.png" alt=" "></p>
-<ul>
-<li>在当次runloop将要结束的时候调用AutoreleasePoolPage::pop()</li>
-<li>多层嵌套就是多次插入哨兵对象</li>
-<li>在for循环中alloc图片数据等内存消耗较大的场景手动插入autoreleasePool</li>
-</ul>
-<h3 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h3><ul>
-<li><p>自循环引用</p>
-<p><img src="/images/image-20200408163839220.png" alt=" "></p>
-</li>
-<li><p>相互循环引用</p>
-<p><img src="/images/image-20200408163859389.png" alt=" "></p>
-</li>
-<li><p>多循环引用</p>
-<p><img src="/images/image-20200408163945322.png" alt=" "></p>
-</li>
-<li><p>代理</p>
-</li>
-<li><p>Block</p>
-</li>
-<li><p>NSTimer</p>
-</li>
-<li><p>大环引用</p>
-</li>
-</ul>
-<h4 id="如何破除循环引用？"><a href="#如何破除循环引用？" class="headerlink" title="如何破除循环引用？"></a>如何破除循环引用？</h4><ul>
-<li><p>避免循环引用</p>
-</li>
-<li><p>在合适的时机手动破除循环引用</p>
-</li>
-<li><p>__weak</p>
-</li>
-<li><p>__block</p>
-<ul>
-<li>MRC下，__block修饰对象不会增加其引用技术，避免了循环引用</li>
-<li>ARC下，__block修饰对象会被强引用，无法避免循环引用，需手动破除</li>
-</ul>
-</li>
-<li><p>__unsafe_unretained</p>
-<ul>
-<li>修饰对象不会增加其引用技术，避免了循环引用</li>
-<li>如果被修饰对象在某一时机被释放，会产生悬垂指针</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20200408164332752.png" alt=" "></p>
-<p><img src="/images/image-20200408165006272.png" alt=" "></p>
-<p><img src="/images/image-20200408165359331.png" alt=" "></p>
-<h4 id="内存管理面试总结"><a href="#内存管理面试总结" class="headerlink" title="内存管理面试总结"></a>内存管理面试总结</h4><h4 id="什么是ARC？"><a href="#什么是ARC？" class="headerlink" title="什么是ARC？"></a>什么是ARC？</h4><ul>
-<li>ARC是由LLVM编译器和Runtime共同协作来为我们实现自动引用计数管理</li>
-</ul>
-<h4 id="为甚weak指针指向的对象在废弃之后会被自动置为nil"><a href="#为甚weak指针指向的对象在废弃之后会被自动置为nil" class="headerlink" title="为甚weak指针指向的对象在废弃之后会被自动置为nil"></a>为甚weak指针指向的对象在废弃之后会被自动置为nil</h4><p>答： 当对象被废弃之后，dealloc内部的方法中会调用清除弱引用的方法，在清除弱引用的方法中通过哈希算法来查找被废弃对象在弱引用表中的位置来提取它弱引用指针的列表数组，然后for循环遍历把每个指针置为nil。</p>
-
+    
+    <a class="article-more-a" href="/2020/04/07/iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93--%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/#more">more >></a>
+    
     
 
     
@@ -1594,59 +930,9 @@
 <li>method_t</li>
 </ul>
 <p><img src="/images/image-20200406204214146.png" alt=" "></p>
-<p><img src="/images/image-20200406204446091.png" alt=" "></p>
-<p><img src="/images/image-20200406204704574.png" alt=" "></p>
-<ul>
-<li>关于对象，其指向类对象</li>
-<li>关于类对象，其指向元类对象</li>
-</ul>
-<p>###cache_t</p>
-<ul>
-<li>用于快速查找方法执行函数</li>
-<li>是可增量扩展的哈希表结构</li>
-<li>是局部性原理的最佳应用 (缓存调用比较频繁的方法)</li>
-</ul>
-<p><img src="/images/image-20200406205142322.png" alt=" "></p>
-<h3 id="class-data-bit-t"><a href="#class-data-bit-t" class="headerlink" title="class_data_bit_t"></a>class_data_bit_t</h3><ul>
-<li>Class_data_bits_t 主要是对class_rw_t的封装</li>
-<li>class_rw_t代表了类相关的读写信息，对class_ro_t的封装</li>
-<li>class_ro_t代表了类相关的只读信息</li>
-</ul>
-<p><img src="/images/image-20200406205612111.png" alt=" "></p>
-<p><img src="/images/image-20200406205830328.png" alt=" "></p>
-<p><img src="/images/image-20200406210049301.png" alt=" "></p>
-<p><img src="/images/image-20200406210426826.png" alt=" "></p>
-<p><img src="/images/image-20200406210716395.png" alt=" "></p>
-<h3 id="对象、类对象、元类对象"><a href="#对象、类对象、元类对象" class="headerlink" title="对象、类对象、元类对象"></a>对象、类对象、元类对象</h3><ul>
-<li>类对象存储实例方法列表等信息</li>
-<li>元类对象存储类方法列表等信息</li>
-</ul>
-<p><img src="/images/image-20200406211526743.png" alt=" "></p>
-<p><img src="/images/image-20200406212507395.png" alt=" "></p>
-<p><img src="/images/image-20200406213240846.png" alt=" "></p>
-<p><img src="/images/image-20200406213349405.png" alt=" "></p>
-<p><img src="/images/image-20200406213601020.png" alt=" "></p>
-<ul>
-<li>缓存查找—哈希查找</li>
-<li>当前类查找<ul>
-<li>已排序的二分查找</li>
-<li>未排序的一般遍历查找</li>
-</ul>
-</li>
-<li>父类逐级查找</li>
-</ul>
-<p><img src="/images/image-20200406214020782.png" alt=" "></p>
-<p>如果为一个类动态添加方法？</p>
-<p>####Method-Swizzling</p>
-<p><img src="/images/image-20200407145415184.png" alt=" "></p>
-<h4 id="动态解析"><a href="#动态解析" class="headerlink" title="动态解析"></a>动态解析</h4><p>@dynamic</p>
-<ul>
-<li>动态运行时语言将函数决议推迟到运行时</li>
-<li>编译时语言在编译期进行函数决议</li>
-</ul>
-<p>能否向编译后的类中增加实例变量？ —不能</p>
-<p>能否向动态添加的类中增加实例变量？—能</p>
-
+    
+    <a class="article-more-a" href="/2020/04/06/iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%20-%20Runtime/#more">more >></a>
+    
     
 
     

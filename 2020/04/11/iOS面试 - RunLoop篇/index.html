@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="如何实现一个常驻线程？ 什么是RunLoop ? RunLoop是通过内部维护的事件循环来对事件&#x2F;消息进行管理的一个对象。 事件循环 是没有消息需要处理时，休眠以避免资源占用    有消息需要处理时，立刻被唤醒       NSRunLoop是CFRunLoop的封装，提供了面向对象的API  CFRunLoop CFRunLoopMode Source&#x2F;Timer&#x2F;Observer">
+  <meta name="description" content="如何实现一个常驻线程？ 什么是RunLoop ? RunLoop是通过内部维护的事件循环来对事件&#x2F;消息进行管理的一个对象。 事件循环 是没有消息需要处理时，休眠以避免资源占用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试 - RunLoop篇">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;11&#x2F;iOS%E9%9D%A2%E8%AF%95%20-%20RunLoop%E7%AF%87&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
-<meta property="og:description" content="如何实现一个常驻线程？ 什么是RunLoop ? RunLoop是通过内部维护的事件循环来对事件&#x2F;消息进行管理的一个对象。 事件循环 是没有消息需要处理时，休眠以避免资源占用    有消息需要处理时，立刻被唤醒       NSRunLoop是CFRunLoop的封装，提供了面向对象的API  CFRunLoop CFRunLoopMode Source&#x2F;Timer&#x2F;Observer">
+<meta property="og:description" content="如何实现一个常驻线程？ 什么是RunLoop ? RunLoop是通过内部维护的事件循环来对事件&#x2F;消息进行管理的一个对象。 事件循环 是没有消息需要处理时，休眠以避免资源占用">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411104447132.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411104927847.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411113557999.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411113716342.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411115124127.png">
-<meta property="og:updated_time" content="2020-04-19T07:14:57.932Z">
+<meta property="og:updated_time" content="2020-04-19T09:04:37.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411104447132.png">
   
@@ -228,7 +228,8 @@
 <p>如何实现一个常驻线程？</p>
 <h4 id="什么是RunLoop"><a href="#什么是RunLoop" class="headerlink" title="什么是RunLoop ?"></a>什么是RunLoop ?</h4><ul>
 <li>RunLoop是通过内部维护的事件循环来对事件/消息进行管理的一个对象。</li>
-<li>事件循环 是没有消息需要处理时，休眠以避免资源占用<ul>
+<li>事件循环 是没有消息需要处理时，休眠以避免资源占用<a id="more"></a>
+<ul>
 <li><img src="/images/image-20200411104927847.png" alt=" "></li>
 </ul>
 </li>

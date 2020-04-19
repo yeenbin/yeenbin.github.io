@@ -188,176 +188,14 @@
     <p><img src="/images/image-20200406105154223.png" alt=" "></p>
 <p>分类都做了哪些事情？</p>
 <ul>
-<li>声明私有方法</li>
-<li>分解体积庞大的类文件</li>
-<li>把Framework的私有方法公开</li>
-</ul>
-<p>分类的特点</p>
-<ul>
-<li>运行时决议</li>
-<li>可以为系统类添加分类</li>
-</ul>
-<p>分类都可以添加哪些内容？</p>
-<ul>
-<li>实例方法</li>
-<li>类方法</li>
-<li>协议</li>
-<li>属性 (只添加get和set方法并没有实例变量，实例变量需要通过关联对象添加)</li>
-</ul>
-<p><img src="/images/image-20200406110009634.png" alt=" "></p>
-<p>有多个分类都有一个同名的方法，请问哪个方法会被调用？</p>
-<ul>
-<li><p>最后编译的方法会最先生效。</p>
+<li><p>声明私有方法</p>
 </li>
-<li><p>分类方法会”覆盖”宿主类的方法的原因：内部源码会将分类的方法放在数组的最前面。</p>
+<li><p>分解体积庞大的类文件</p>
 </li>
-<li><p>名字相同的分类会引起的编译报错</p>
-</li>
-</ul>
-<p>能否为分类添加实例变量？</p>
-<p>能为分类添加成员变量，通过关联对象来添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">objc_getAssociatedObject(id _Nonnull object, const void * _Nonnull key)</span><br><span class="line"> </span><br><span class="line">objc_setAssociatedObject(id _Nonnull object, const void * _Nonnull key,</span><br><span class="line">                         id _Nullable value, objc_AssociationPolicy policy)</span><br><span class="line">  </span><br><span class="line">objc_removeAssociatedObjects(id _Nonnull object)</span><br></pre></td></tr></table></figure>
-
-<p>那关联对象是在哪里呢？</p>
-<p>关联对象由AssocaitionsManager管理并在AssociationsHashMa存储</p>
-<p>所有对象的关联内容都在同一个全局容器中。</p>
-<p><img src="/images/image-20200406175338607.png" alt=" "></p>
-<p><img src="/images/image-20200406175512871.png" alt=" "></p>
-<h5 id="扩展-Extension"><a href="#扩展-Extension" class="headerlink" title="扩展(Extension)"></a>扩展(Extension)</h5><p>一般用扩展做什么？</p>
-<ul>
-<li>声明私有属性，</li>
-<li>声明私有方法</li>
-<li>声明私有成员变量</li>
-</ul>
-<p>分类和扩展的区别</p>
-<ul>
-<li>扩展编译时决议</li>
-<li>扩展只以声明的形式存在，多数情况下寄生于宿主类的.m中</li>
-<li>不能为系统类添加扩展</li>
-</ul>
-<h5 id="代理-Delegate"><a href="#代理-Delegate" class="headerlink" title="代理(Delegate)"></a>代理(Delegate)</h5><ul>
-<li>准确的说是一种软件设计模式(代理模式)</li>
-<li>iOS当中以@protocol形式体现</li>
-<li>传递方式一对一，通知是一对多</li>
-</ul>
-<p><img src="/images/image-20200406180309195.png" alt=" "></p>
-<p>协议当中可以定义成员、属性和方法。</p>
-<p>@require修饰的方法必须实现</p>
-<p>@optional修饰的方法可以可选实现</p>
-<ul>
-<li>一般声明为weak以规避循环引用</li>
-</ul>
-<h4 id="通知-NSNotification"><a href="#通知-NSNotification" class="headerlink" title="通知(NSNotification)"></a>通知(NSNotification)</h4><ul>
-<li>是使用观察者模式来实现的用于跨层传递消息的机制</li>
-<li>传递方式一对多</li>
-</ul>
-<p>如实实现通知机制？</p>
-<p><img src="/images/image-20200406181206399.png" alt=" "></p>
-<h5 id="KVO"><a href="#KVO" class="headerlink" title="KVO"></a>KVO</h5><ul>
-<li>KVO是Key-value observing的缩写</li>
-<li>KVO是Objective-C 对观察者设计模式的又一实现</li>
-<li>Apple 使用了isa混写(isa-swizzling)来实现KVO</li>
-</ul>
-<p><img src="/images/image-20200406181756869.png" alt=" "></p>
-<p><img src="/images/image-20200406182721445.png" alt=" "></p>
-<p>// 1. 通过kvc设置value能否生效出发监听？</p>
-<ul>
-<li>能</li>
-</ul>
-<p>// 2. 通过成员变量修改value值能够生效？</p>
-<ul>
-<li>不能</li>
-</ul>
-<p><img src="/images/image-20200406183533904.png" alt=" "></p>
-<p>可以用手动KVO进行修改以达到触发KVO监听的目的</p>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
-<li>使用settre方法改变值KVO才会生效</li>
-<li>使用setValue：forKey：改变值KVO才会生效</li>
-<li>成员变量直接修改需手动添加KVO才会生效</li>
-</ul>
-<p><img src="/images/image-20200406185341828.png" alt=" "></p>
-<p><img src="/images/image-20200406200132477.png" alt=" "></p>
-<h5 id="Accessor-Method"><a href="#Accessor-Method" class="headerlink" title="Accessor Method"></a>Accessor Method</h5><ul>
-<li><getKey></li>
-<li><key></li>
-<li><iskey>
-
-</li>
-</ul>
-<h5 id="Instance-var"><a href="#Instance-var" class="headerlink" title="Instance var"></a>Instance var</h5><ul>
-<li>_key</li>
-<li>_isKey</li>
-<li>key</li>
-<li>isKey</li>
-</ul>
-<h4 id="属性关键字"><a href="#属性关键字" class="headerlink" title="属性关键字"></a>属性关键字</h4><ul>
-<li>读写权限 <ul>
-<li>readonly</li>
-<li>readwrite(默认)</li>
-</ul>
-</li>
-<li>原子性<ul>
-<li>atomic ： 只保证赋值和获取线程安全<ul>
-<li>如果对atomic修复的数组进行删除和添加的操作不能保证线程安全</li>
-</ul>
-</li>
-<li>nonatomic (默认的)</li>
-</ul>
-</li>
-<li>引用计数<ul>
-<li>retain/strong</li>
-<li>assign/unsafe_unretained</li>
-<li>weak</li>
-<li>copy</li>
-</ul>
-</li>
-</ul>
-<h5 id="weak和assign的区别"><a href="#weak和assign的区别" class="headerlink" title="weak和assign的区别"></a>weak和assign的区别</h5><ul>
-<li>assign<ul>
-<li>修饰基本数据类型，如int，BOOL等</li>
-<li>修饰对象类型时，不改变其引用计数</li>
-<li>会产生悬垂指针，即使释放之后指针仍然指向原来地址</li>
-</ul>
-</li>
-<li>weak<ul>
-<li>不该变被修饰对象的引用计数</li>
-<li>所指对象在被释放之后会自动置为nil<ul>
-<li>为什么会被置为nil《内存管理》章节讲</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20200406201652928.png" alt=" "></p>
-<p>浅拷贝就是对内存地址的复制，让目标对象指针和源对象指向同一片内存空间。</p>
-<ul>
-<li>增加被拷贝地址的引用计数</li>
-<li>没有发生新的内存地址分配</li>
-</ul>
-<p><img src="/images/image-20200406201911930.png" alt=" "></p>
-<p>深拷贝让目标对象指针和源对象指针指向两片内容相同的内容</p>
-<ul>
-<li>不会增加被拷贝地址的引用计数</li>
-<li>发生新的内存地址分配</li>
-</ul>
-<p>如何区分浅拷贝和深拷贝</p>
-<ul>
-<li>是否开辟新的内存空间</li>
-<li>被拷贝对象的引用计数是否增加</li>
-</ul>
-<p><img src="/images/image-20200406202203166.png" alt=" "></p>
-<ul>
-<li>可变对象的copy和mutableCopy都是深拷贝</li>
-<li>不可变对象的copy是浅拷贝，mutableCopy是深拷贝</li>
-<li>copy方法返回的都是不可变对象</li>
-</ul>
-<h5 id="请问-property-copy-NSMutableArray-array-会产生什么问题？"><a href="#请问-property-copy-NSMutableArray-array-会产生什么问题？" class="headerlink" title="请问@property(copy) NSMutableArray * array 会产生什么问题？"></a>请问@property(copy) NSMutableArray * array 会产生什么问题？</h5><ul>
-<li>如果赋值过来的是NSMutableArray，copy之后是浅拷贝的NSArray</li>
-<li>如果赋值过来的是NSArray，copy之后是NSArray</li>
-<li>拷贝之后都是不可变的，如果调用insert或者remove方法就会造成程序崩溃</li>
-</ul>
-<p><img src="/images/image-20200406203202661.png" alt=" "></p>
-
+<li><p>把Framework的私有方法公开</p>
+    
+    <a class="article-more-a" href="/2020/04/06/iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-Objective-C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -435,80 +273,9 @@
 <p><img src="/images/image-20200406094632162.png" alt=" "></p>
 <p>2.串行队列访问</p>
 <p><img src="/images/image-20200406094822236.png" alt=" "></p>
-<p>并发访问数据拷贝和串行访问解决方案</p>
-<ol start="2">
-<li><p>UIView和CALayer的关系</p>
-<ul>
-<li>UIView为其提供内容，以及负责处理触摸等事件，参与响应链</li>
-<li>CALayer负责显示内容Content</li>
-<li>这区别体现了设计模式中的单一职责原则</li>
-</ul>
-</li>
-<li><p>事件传递与响应机制</p>
-<p><img src="/images/image-20200406095433390.png" alt=" "></p>
-<p><img src="/images/image-20200406095624860.png" alt=" "></p>
-<p><img src="/images/image-20200406095851184.png" alt=" "></p>
-</li>
-</ol>
-<p><img src="/images/image-20200406100834767.png" alt=" "></p>
-<p><img src="/images/image-20200406101103489.png" alt=" "></p>
-<p>4.图像显示原理</p>
-<p><img src="/images/image-20200406101541713.png" alt=" "></p>
-<p><img src="/images/image-20200406101819460.png" alt=" "></p>
-<ol start="5">
-<li>UI卡顿和掉帧原理和解决方案</li>
-</ol>
-<p>60fps 每秒60帧比较顺畅，相当于每一帧不超过16.7ms</p>
-<p>每一帧没有完成CPU和GPU渲染合成的工作而造成卡顿和掉帧</p>
-<ul>
-<li>CPU<ul>
-<li>对象创建、调整、销毁</li>
-<li>预排版(布局计算、文本计算)</li>
-<li>预渲染(文本等异步绘制，图片编解码等)</li>
-</ul>
-</li>
-<li>GPU<ul>
-<li>纹理渲染</li>
-<li>圆角、masktobound都会触发离屏渲染</li>
-<li>视图混合</li>
-</ul>
-</li>
-</ul>
-<p>UI绘制流程的</p>
-<p><img src="/images/image-20200406102916669.png" alt=" "></p>
-<p>系统绘制流程</p>
-<p><img src="/images/image-20200406103102089.png" alt=" "></p>
-<p>是否知道异步绘制以及如何使用？</p>
-<ul>
-<li>-[layer.delegate displayLayer]<ul>
-<li>代理负责生成对应的bitmap</li>
-<li>设置该bitmap作为layer.contents 属性的值</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20200406103352474.png" alt=" "></p>
-<p>你对离屏渲染</p>
-<ul>
-<li><p>On-Screen Rendering</p>
-<p>意为当前屏幕渲染，指的是GPU的渲染操作是在当前用于显示的屏幕缓冲区进行</p>
-</li>
-<li><p>Off-Screen Rendering<br>意为离屏渲染，指的是GPU在当前屏幕缓冲区以外新开辟一个缓冲区进行渲染操作</p>
-</li>
-</ul>
-<p>何时会触发？</p>
-<ul>
-<li>圆角(当和马赛克ToBounds一起使用时)</li>
-<li>图层蒙版</li>
-<li>阴影</li>
-<li>光栅化</li>
-</ul>
-<p>为何要避免离屏渲染？</p>
-<ul>
-<li>创建新的渲染缓冲区</li>
-<li>上下文切换</li>
-</ul>
-<p>UI视图面试总结</p>
-
+    
+    <a class="article-more-a" href="/2020/04/06/iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-UI%E7%AF%87/#more">more >></a>
+    
     
 
     
@@ -590,57 +357,9 @@
 <li>使用多种CALayer的子类，并且不想创建额外的UIView去包封装它们所有</li>
 <li>做一些对性能特别挑剔的工作，比如对UIView一些可忽略不计的操作都会引起显著额不同(尽管如此，你可能会直接想使用OPenGL绘图)</li>
 </ul>
-<h3 id="寄宿图"><a href="#寄宿图" class="headerlink" title="寄宿图"></a>寄宿图</h3><p>寄宿图：CALayer的寄宿图(即图层中包含的图)。</p>
-<p>CALayer有一个属性叫做Contents，赋值的类型为CGImageRef，它是一个指向CGImage结构的指针。 UIImage有一个CGImage属性，它返回一个”CGImageRef”，直接赋值给contents会出现编译错误。需要通过bridged关键字转换。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layer.contents = (__bridge id)imae.CGImage;</span><br></pre></td></tr></table></figure>
-
-<h4 id="contentGravity"><a href="#contentGravity" class="headerlink" title="contentGravity"></a>contentGravity</h4><p>对应UIImageView的contentMode属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">typedef NSString * CALayerContentsGravity NS_STRING_ENUM;</span><br><span class="line"></span><br><span class="line">/** Layer `contentsGravity&apos; values. **/</span><br><span class="line"></span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityCenter</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityTop</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityBottom</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityLeft</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityRight</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityTopLeft</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityTopRight</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityBottomLeft</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityBottomRight</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityResize</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityResizeAspect</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br><span class="line">CA_EXTERN CALayerContentsGravity const kCAGravityResizeAspectFill</span><br><span class="line">    API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.layerView.layer.contentsGravity = kCAGravityResizeAspect;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="contentsScale"><a href="#contentsScale" class="headerlink" title="contentsScale"></a>contentsScale</h4><p>contentsScale属性其实属于支持高分辨率屏幕机制的一部分。它用来判断在绘制图层的时候应该为寄宿图创建的空间大小，和需要显示的图片的拉伸度(假设并没有设置contentsGravity属性)。UIView有一个类似功能但是非常少用到的contentScaleFactor属性。</p>
-<p>​    如果contentsScale设置为1.0，将会以每个点1个像素绘制图片，如果设置为2.0，则会以每个点2个像素绘制图片，这就是我们所熟知的Retain屏幕。</p>
-<p>当用代码的方式来处理寄宿图的时候，一定要记住要手动的设置图层的contentsScale属性，否则，你的图片在Retain设备上就显示得不正确啦。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layer.contentsScale = [UIScreen mainScreen].scale;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="maskToBounds"><a href="#maskToBounds" class="headerlink" title="maskToBounds"></a>maskToBounds</h4><p>UIView有一个叫做clipsToBounds的属性可以用来决定是否显示超出边界的内容，CALayer对应的属性叫做masksToBounds, 把它设置为YES。</p>
-<h4 id="contentRect"><a href="#contentRect" class="headerlink" title="contentRect"></a>contentRect</h4><p>CALayer的contentsRect属性允许我们在图层边框里显示寄宿图的一个子域。这涉及到图片是如何显示和拉伸的，所以要比contentsGravity灵活多了。</p>
-<h4 id="Custom-Drawing"><a href="#Custom-Drawing" class="headerlink" title="Custom  Drawing"></a>Custom  Drawing</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    CALayer *blueLayer = [CALayer layer];</span><br><span class="line">    blueLayer.frame = CGRectMake(50.0f, 50.0f, 100.0f, 100.0f);</span><br><span class="line">    blueLayer.backgroundColor = [UIColor blueColor].CGColor;</span><br><span class="line">    // 把控制器当做layer的代理</span><br><span class="line">    blueLayer.delegate = self;</span><br><span class="line">    blueLayer.contentsScale = [UIScreen mainScreen].scale;</span><br><span class="line">    [self.layerView.layer addSublayer:blueLayer];</span><br><span class="line">    </span><br><span class="line">    // 显示调用 display</span><br><span class="line">    [blueLayer display];</span><br><span class="line">    </span><br><span class="line">    // layer的宿寄图contents</span><br><span class="line">    self.layerView.layer.contents = (__bridge id)[UIImage imageNamed:@&quot;snowman.jpg&quot;].CGImage;</span><br><span class="line">    // 设置contentsGravity（类似UIImage的contentMode）这边是字符串枚举</span><br><span class="line">    self.layerView.layer.contentsGravity = kCAGravityResizeAspect;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx &#123;</span><br><span class="line">    // 画一个厚厚的红色圆圈</span><br><span class="line">    CGContextSetLineWidth(ctx, 10.0f);</span><br><span class="line">    CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);</span><br><span class="line">    CGContextStrokeEllipseInRect(ctx, layer.bounds);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-
-<p>实现CALayerDelegate来绘制图层</p>
-<ul>
-<li><p>我们在blueLayer上显示地调用了 -display。 不同于UIView，当图层显示在屏幕上时，CALayer不会自动重绘它的内容。它把重绘的决定权交给了开发者。</p>
-</li>
-<li><p>尽管我们没有用masksToBounds属性，绘制的那个圆仍然沿边界被裁剪了。这是因为当你使用CALayerDelegate绘制寄宿图的时候，并没有对超出边界外的内容提供绘制支持。</p>
-<p>除非你穿件了饿一个单独的图层，你几乎没有机会用到CALayerDelegate协议。因为当UIView创建了它宿主图层时，它就会自动地把图层的delegate设置为它自己，并提供了一个-displayer：的实现，那所有的问题就都没了。</p>
-<p>​    当使用寄宿了视图的图层的时候，你也不必实现-displayLayer：和-drawLayer：inContext:方法来绘制你的寄宿图。通常做法是实现UIView的-drawRect：方法，UIView就会帮你做完剩下的工作，包括在需要重绘的时候调用-display方法。</p>
-</li>
-</ul>
-<h4 id="Hit-Testing"><a href="#Hit-Testing" class="headerlink" title="Hit Testing"></a>Hit Testing</h4><p>CALayer 并不关心任何响应链事件，所以不能直接处理触摸事件或者手势。但是它有一些列的方法帮你处理事件： -containsPoint: 和 -hitTest: 。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> - (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event &#123;</span><br><span class="line">     // 获取触摸的点</span><br><span class="line">    CGPoint point = [[touches anyObject] locationInView:self.view];</span><br><span class="line">     // 将点转化到白色图层的坐标系上</span><br><span class="line">    point = [self.layerView.layer convertPoint:point fromLayer:self.view.layer];</span><br><span class="line">     // 用containsPoint：来判断触摸的点是否在图层上</span><br><span class="line">    if ([self.layerView.layer containsPoint:point]) &#123;</span><br><span class="line">         // 将触摸的点转化到blueLayer的坐标系上</span><br><span class="line">        point = [self.blueLayer convertPoint:point fromLayer:self.layerView.layer];</span><br><span class="line">        if ([self.blueLayer containsPoint:point]) &#123;</span><br><span class="line">            [[[UIAlertView alloc] initWithTitle:@&quot;在蓝色图层内&quot; message:nil delegate:nil cancelButtonTitle:@&quot;OK&quot; otherButtonTitles:nil, nil] show];</span><br><span class="line">            </span><br><span class="line">        &#125;else &#123;</span><br><span class="line">             [[[UIAlertView alloc] initWithTitle:@&quot;在白色图层内&quot; message:nil delegate:nil cancelButtonTitle:@&quot;OK&quot; otherButtonTitles:nil, nil] show];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>-hitTest方法同样接受一个CGPoint类型参数，它返回图层本身，而不是BOOL类型。这意味着的不再需要像使用-containsPoint：哪一样，人工地在每个子图层变换或者测试点击的坐标。如果这个点在最外面图层的范围之外，则返回nil。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event &#123;</span><br><span class="line"></span><br><span class="line">    // 2.用 -hitTest来判断触摸点是否在图层上</span><br><span class="line">    // 获取触摸的点</span><br><span class="line">    CGPoint point = [[touches anyObject] locationInView:self.view];</span><br><span class="line">    // 用hitTest：来判断触摸的点是否在图层上</span><br><span class="line">    CALayer *layer = [self.layerView.layer hitTest:point];</span><br><span class="line">    // 用hitTest：来判断触摸的点是否在图层上</span><br><span class="line">    if (layer == self.blueLayer) &#123;</span><br><span class="line">        [[[UIAlertView alloc] initWithTitle:@&quot;在蓝色图层内&quot; message:nil delegate:nil cancelButtonTitle:@&quot;OK&quot; otherButtonTitles:nil, nil] show];</span><br><span class="line">        </span><br><span class="line">    &#125;else if(layer == self.layerView.layer)&#123;</span><br><span class="line">        [[[UIAlertView alloc] initWithTitle:@&quot;在白色图层内&quot; message:nil delegate:nil cancelButtonTitle:@&quot;OK&quot; otherButtonTitles:nil, nil] show];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="自动布局"><a href="#自动布局" class="headerlink" title="自动布局"></a>自动布局</h3><p>当使用视图的时候，可以充分利用UIView类接口暴露出来的UIViewAutoresizingMask和NSLayoutConstraint API,但如果想随意控制CALayer的布局，就需要手工操作。最简单的方法就是使用CALayerDelegate 如下函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)layoutSublayerOfLayer:(CALayer *)layer；</span><br></pre></td></tr></table></figure>
-
-<p>当图层的bounds发生改变，或者图层的-setNeedsLayout 方法被调用的时候，这个函数将会被执行。这使得你可以手动地重新摆放或者重新调整子视图的大小。但是不能像UIView的autoresizingMask和 constraints属性做到应屏幕旋转。</p>
-<p>这也是为甚最好使用视图而不是单独的图层来构建应用程序的另一个重要原因之一。</p>
-<h3 id="视图效果"><a href="#视图效果" class="headerlink" title="视图效果"></a>视图效果</h3><h4 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h4>
+    
+    <a class="article-more-a" href="/2019/09/03/iOS%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/#more">more >></a>
+    
     
 
     

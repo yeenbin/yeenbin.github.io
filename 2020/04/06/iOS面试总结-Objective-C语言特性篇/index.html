@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="分类都做了哪些事情？  声明私有方法 分解体积庞大的类文件 把Framework的私有方法公开  分类的特点  运行时决议 可以为系统类添加分类  分类都可以添加哪些内容？  实例方法 类方法 协议 属性 (只添加get和set方法并没有实例变量，实例变量需要通过关联对象添加)   有多个分类都有一个同名的方法，请问哪个方法会被调用？  最后编译的方法会最先生效。  分类方法会”覆盖”宿主类的方">
+  <meta name="description" content="分类都做了哪些事情？  声明私有方法  分解体积庞大的类文件  把Framework的私有方法公开">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试总结-Objective-C语言特性篇">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;06&#x2F;iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-Objective-C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E7%AF%87&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
-<meta property="og:description" content="分类都做了哪些事情？  声明私有方法 分解体积庞大的类文件 把Framework的私有方法公开  分类的特点  运行时决议 可以为系统类添加分类  分类都可以添加哪些内容？  实例方法 类方法 协议 属性 (只添加get和set方法并没有实例变量，实例变量需要通过关联对象添加)   有多个分类都有一个同名的方法，请问哪个方法会被调用？  最后编译的方法会最先生效。  分类方法会”覆盖”宿主类的方">
+<meta property="og:description" content="分类都做了哪些事情？  声明私有方法  分解体积庞大的类文件  把Framework的私有方法公开">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406105154223.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406110009634.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406201911930.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406202203166.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406203202661.png">
-<meta property="og:updated_time" content="2020-04-19T07:26:24.505Z">
+<meta property="og:updated_time" content="2020-04-19T09:05:46.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406105154223.png">
   
@@ -224,14 +224,18 @@
     <p><img src="/images/image-20200406105154223.png" alt=" "></p>
 <p>分类都做了哪些事情？</p>
 <ul>
-<li>声明私有方法</li>
-<li>分解体积庞大的类文件</li>
-<li>把Framework的私有方法公开</li>
-</ul>
+<li><p>声明私有方法</p>
+</li>
+<li><p>分解体积庞大的类文件</p>
+</li>
+<li><p>把Framework的私有方法公开</p>
+<a id="more"></a>
 <p>分类的特点</p>
-<ul>
-<li>运行时决议</li>
-<li>可以为系统类添加分类</li>
+</li>
+<li><p>运行时决议</p>
+</li>
+<li><p>可以为系统类添加分类</p>
+</li>
 </ul>
 <p>分类都可以添加哪些内容？</p>
 <ul>

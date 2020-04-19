@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="数据结构 objc_object objc_class isa指针 method_t      关于对象，其指向类对象 关于类对象，其指向元类对象  ###cache_t  用于快速查找方法执行函数 是可增量扩展的哈希表结构 是局部性原理的最佳应用 (缓存调用比较频繁的方法)   class_data_bit_t Class_data_bits_t 主要是对class_rw_t的封装 class_">
+  <meta name="description" content="数据结构 objc_object objc_class isa指针 method_t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试总结 - Runtime">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;06&#x2F;iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%20-%20Runtime&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
-<meta property="og:description" content="数据结构 objc_object objc_class isa指针 method_t      关于对象，其指向类对象 关于类对象，其指向元类对象  ###cache_t  用于快速查找方法执行函数 是可增量扩展的哈希表结构 是局部性原理的最佳应用 (缓存调用比较频繁的方法)   class_data_bit_t Class_data_bits_t 主要是对class_rw_t的封装 class_">
+<meta property="og:description" content="数据结构 objc_object objc_class isa指针 method_t">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406204214146.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406204446091.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406213601020.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406214020782.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407145415184.png">
-<meta property="og:updated_time" content="2020-04-19T07:23:41.600Z">
+<meta property="og:updated_time" content="2020-04-19T09:05:34.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200406204214146.png">
   
@@ -229,6 +229,7 @@
 <li>method_t</li>
 </ul>
 <p><img src="/images/image-20200406204214146.png" alt=" "></p>
+<a id="more"></a>
 <p><img src="/images/image-20200406204446091.png" alt=" "></p>
 <p><img src="/images/image-20200406204704574.png" alt=" "></p>
 <ul>

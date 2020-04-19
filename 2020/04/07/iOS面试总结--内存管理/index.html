@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="内存布局 stack：方法调用 heap：通过alloc等分配的对象 bss： 未初始化的全局变量等。 data：已初始化的全局变量等 text:  程序代码  内存管理方案 TaggedPointer NONPOINTER_ISA  非指针型ISA 散列表  散列表方式SideTables()结构     Spinlock_t   自旋锁是”忙等”的锁 适用于轻量访问   RefcountM">
+  <meta name="description" content="内存布局 stack：方法调用 heap：通过alloc等分配的对象 bss： 未初始化的全局变量等。 data：已初始化的全局变量等 text:  程序代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试总结--内存管理">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;07&#x2F;iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93--%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
-<meta property="og:description" content="内存布局 stack：方法调用 heap：通过alloc等分配的对象 bss： 未初始化的全局变量等。 data：已初始化的全局变量等 text:  程序代码  内存管理方案 TaggedPointer NONPOINTER_ISA  非指针型ISA 散列表  散列表方式SideTables()结构     Spinlock_t   自旋锁是”忙等”的锁 适用于轻量访问   RefcountM">
+<meta property="og:description" content="内存布局 stack：方法调用 heap：通过alloc等分配的对象 bss： 未初始化的全局变量等。 data：已初始化的全局变量等 text:  程序代码">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407153853309.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407171351437.png">
@@ -42,7 +42,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408164332752.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408165006272.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408165359331.png">
-<meta property="og:updated_time" content="2020-04-19T07:25:10.596Z">
+<meta property="og:updated_time" content="2020-04-19T09:05:39.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407153853309.png">
   
@@ -240,6 +240,8 @@
 <li>data：已初始化的全局变量等</li>
 <li>text:  程序代码</li>
 </ul>
+<a id="more"></a>
+
 <h4 id="内存管理方案"><a href="#内存管理方案" class="headerlink" title="内存管理方案"></a>内存管理方案</h4><ul>
 <li>TaggedPointer</li>
 <li>NONPOINTER_ISA  非指针型ISA</li>

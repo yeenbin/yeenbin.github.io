@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="什么是Block ？  Block是将函数及其执行上下文封装起来的对象 block的结构体中含有isa指针  源码解析 使用 clang-rewrite-objc file.m 】  Block截获比变量 局部变量  基本数据类型 对象类型   静态局部变量   全局变量  静态全局变量的  对于基本数据类型的局部变量截获其值  对于对象类型的局部变量连同所有权修饰符一起截获  Block不捕获全">
+  <meta name="description" content="什么是Block ？  Block是将函数及其执行上下文封装起来的对象 block的结构体中含有isa指针  源码解析 使用 clang-rewrite-objc file.m 】">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试---Block篇">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;09&#x2F;iOS%E9%9D%A2%E8%AF%95---Block%E7%AF%87&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
-<meta property="og:description" content="什么是Block ？  Block是将函数及其执行上下文封装起来的对象 block的结构体中含有isa指针  源码解析 使用 clang-rewrite-objc file.m 】  Block截获比变量 局部变量  基本数据类型 对象类型   静态局部变量   全局变量  静态全局变量的  对于基本数据类型的局部变量截获其值  对于对象类型的局部变量连同所有权修饰符一起截获  Block不捕获全">
+<meta property="og:description" content="什么是Block ？  Block是将函数及其执行上下文封装起来的对象 block的结构体中含有isa指针  源码解析 使用 clang-rewrite-objc file.m 】">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409151955286.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409152148020.png">
@@ -27,7 +27,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409164819868.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409164956529.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409165359224.png">
-<meta property="og:updated_time" content="2020-04-19T07:15:58.619Z">
+<meta property="og:updated_time" content="2020-04-19T09:04:44.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409151955286.png">
   
@@ -224,6 +224,7 @@
 <h4 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h4><ul>
 <li>使用 clang-rewrite-objc file.m 】</li>
 </ul>
+<a id="more"></a>
 <h4 id="Block截获比变量"><a href="#Block截获比变量" class="headerlink" title="Block截获比变量"></a>Block截获比变量</h4><ul>
 <li><p>局部变量</p>
 <ul>

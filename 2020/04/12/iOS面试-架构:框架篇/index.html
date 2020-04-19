@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="模块化 分层 解耦 减低代码重合度   图片通过什么方式进行读写，过程是怎样的？  以图片URL的单向Hash值作为Key   借鉴系统关于多级缓存的思想，引入了内存模块，提高查找效率，节省流量。 内存的设计上需要考虑哪些问题？ 存储的Size  50 x 10kb 20  x 100kb 10  x 100kb      淘汰策略  以队列先进先出的方式淘汰 LRU算法(如30分钟之内是否使">
+  <meta name="description" content="模块化 分层 解耦 减低代码重合度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试-架构:框架篇">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;12&#x2F;iOS%E9%9D%A2%E8%AF%95-%E6%9E%B6%E6%9E%84:%E6%A1%86%E6%9E%B6%E7%AF%87&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
-<meta property="og:description" content="模块化 分层 解耦 减低代码重合度   图片通过什么方式进行读写，过程是怎样的？  以图片URL的单向Hash值作为Key   借鉴系统关于多级缓存的思想，引入了内存模块，提高查找效率，节省流量。 内存的设计上需要考虑哪些问题？ 存储的Size  50 x 10kb 20  x 100kb 10  x 100kb      淘汰策略  以队列先进先出的方式淘汰 LRU算法(如30分钟之内是否使">
+<meta property="og:description" content="模块化 分层 解耦 减低代码重合度">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200412211735476.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200413070940264.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200413114251821.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200413114756958.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200413114959344.png">
-<meta property="og:updated_time" content="2020-04-19T07:19:14.264Z">
+<meta property="og:updated_time" content="2020-04-19T09:05:14.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200412211735476.png">
   
@@ -225,6 +225,7 @@
 <li>减低代码重合度</li>
 </ul>
 <p><img src="/images/image-20200413070940264.png" alt=" "></p>
+<a id="more"></a>
 <p>图片通过什么方式进行读写，过程是怎样的？</p>
 <ul>
 <li>以图片URL的单向Hash值作为Key</li>

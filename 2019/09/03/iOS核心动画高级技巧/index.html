@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="叶恩宾的博客">
 <meta property="og:description" content="一个视图只有一个相关联的图层(自动创建)，同时它也可以支持添加无数多个子图层， 使用图层关联的视图而不是CALayer的好处在于，你能再使用所有CALayer底层特性的同时，也可以使用UIView的高级API(比如自动排版，布局和事件处理)。 当满足以下条件的时候，你可能更需要使用CALayer而不是UIView  开发同时可以在Mac OS上运行的跨平台应用 使用多种CALayer的子类，并且不">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-05T09:44:20.900Z">
+<meta property="og:updated_time" content="2020-04-19T09:04:21.368Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="叶恩宾的博客" type="application/atom+xml">
@@ -213,6 +213,8 @@
 <li>使用多种CALayer的子类，并且不想创建额外的UIView去包封装它们所有</li>
 <li>做一些对性能特别挑剔的工作，比如对UIView一些可忽略不计的操作都会引起显著额不同(尽管如此，你可能会直接想使用OPenGL绘图)</li>
 </ul>
+<a id="more"></a>
+
 <h3 id="寄宿图"><a href="#寄宿图" class="headerlink" title="寄宿图"></a>寄宿图</h3><p>寄宿图：CALayer的寄宿图(即图层中包含的图)。</p>
 <p>CALayer有一个属性叫做Contents，赋值的类型为CGImageRef，它是一个指向CGImage结构的指针。 UIImage有一个CGImage属性，它返回一个”CGImageRef”，直接赋值给contents会出现编译错误。需要通过bridged关键字转换。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layer.contents = (__bridge id)imae.CGImage;</span><br></pre></td></tr></table></figure>
