@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://yeenbin.github.io">
   <title>iOS面试总结--内存管理 | 叶恩宾的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,38 +13,38 @@
   <meta name="description" content="内存布局 stack：方法调用 heap：通过alloc等分配的对象 bss： 未初始化的全局变量等。 data：已初始化的全局变量等 text:  程序代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试总结--内存管理">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;07&#x2F;iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93--%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;2020&#x2F;04&#x2F;07&#x2F;iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93--%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
 <meta property="og:description" content="内存布局 stack：方法调用 heap：通过alloc等分配的对象 bss： 未初始化的全局变量等。 data：已初始化的全局变量等 text:  程序代码">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407153853309.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407171351437.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407172859249.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407172827712.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407173713674.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407174622884.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407174833915.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408131833030.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408131853691.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408132035848.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408132239224.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408133047695.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408151049164.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408152213572.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408152313278.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408152344603.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408152731395.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408153301606.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408153551003.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408163839220.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408163859389.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408163945322.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408164332752.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408165006272.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200408165359331.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407153853309.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407171351437.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407172859249.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407172827712.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407173713674.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407174622884.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407174833915.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408131833030.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408131853691.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408132035848.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408132239224.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408133047695.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408151049164.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408152213572.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408152313278.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408152344603.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408152731395.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408153301606.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408153551003.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408163839220.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408163859389.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408163945322.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408164332752.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408165006272.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408165359331.png">
 <meta property="og:updated_time" content="2020-04-19T09:05:39.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200407153853309.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407153853309.png">
   
     <link rel="alternative" href="/atom.xml" title="叶恩宾的博客" type="application/atom+xml">
   
@@ -167,7 +167,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="https://yeenbin.github.io" target="_blank" rel="noopener">主页</a></li>
+					<li style="width: 100%"><a href="https://yeenbin.github.io">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -405,7 +405,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/04/07/iOS面试总结--内存管理/" title="iOS面试总结--内存管理" target="_blank">http://yoursite.com/2020/04/07/iOS面试总结--内存管理/</a>
+          <a href="http://yeenbin.github.io/2020/04/07/iOS面试总结--内存管理/" title="iOS面试总结--内存管理" target="_blank">http://yeenbin.github.io/2020/04/07/iOS面试总结--内存管理/</a>
         </li>
         
         <li>
@@ -472,7 +472,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/07/iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93--%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yeenbin.github.io/2020/04/07/iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93--%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -541,7 +541,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2020 <a href="http://yoursite.com/" target="_blank">叶恩宾</a>
+    		&copy; 2018-2020 <a href="http://yeenbin.github.io/" target="_blank">叶恩宾</a>
     	</div>
       	<div class="footer-right">
 			

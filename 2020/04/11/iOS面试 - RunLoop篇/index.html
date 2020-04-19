@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://yeenbin.github.io">
   <title>iOS面试 - RunLoop篇 | 叶恩宾的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,31 +13,31 @@
   <meta name="description" content="如何实现一个常驻线程？ 什么是RunLoop ? RunLoop是通过内部维护的事件循环来对事件&#x2F;消息进行管理的一个对象。 事件循环 是没有消息需要处理时，休眠以避免资源占用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试 - RunLoop篇">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;11&#x2F;iOS%E9%9D%A2%E8%AF%95%20-%20RunLoop%E7%AF%87&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;2020&#x2F;04&#x2F;11&#x2F;iOS%E9%9D%A2%E8%AF%95%20-%20RunLoop%E7%AF%87&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
 <meta property="og:description" content="如何实现一个常驻线程？ 什么是RunLoop ? RunLoop是通过内部维护的事件循环来对事件&#x2F;消息进行管理的一个对象。 事件循环 是没有消息需要处理时，休眠以避免资源占用">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411104447132.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411104927847.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411104937694.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411105551583.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411110324213.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411110523015.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411110530617.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411110454465.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411110806091.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411110820516.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411110829209.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411111445583.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411111644188.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411113111942.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411113414543.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411113557999.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411113716342.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411115124127.png">
-<meta property="og:updated_time" content="2020-04-19T09:04:37.718Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411104447132.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411104927847.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411104937694.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411105551583.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411110324213.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411110523015.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411110530617.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411110454465.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411110806091.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411110820516.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411110829209.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411111445583.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411111644188.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411113111942.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411113414543.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411113557999.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411113716342.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411115124127.png">
+<meta property="og:updated_time" content="2020-04-19T09:07:34.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200411104447132.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411104447132.png">
   
     <link rel="alternative" href="/atom.xml" title="叶恩宾的博客" type="application/atom+xml">
   
@@ -160,7 +160,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="https://yeenbin.github.io" target="_blank" rel="noopener">主页</a></li>
+					<li style="width: 100%"><a href="https://yeenbin.github.io">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -348,7 +348,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/04/11/iOS面试 - RunLoop篇/" title="iOS面试 - RunLoop篇" target="_blank">http://yoursite.com/2020/04/11/iOS面试 - RunLoop篇/</a>
+          <a href="http://yeenbin.github.io/2020/04/11/iOS面试 - RunLoop篇/" title="iOS面试 - RunLoop篇" target="_blank">http://yeenbin.github.io/2020/04/11/iOS面试 - RunLoop篇/</a>
         </li>
         
         <li>
@@ -415,7 +415,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/11/iOS%E9%9D%A2%E8%AF%95%20-%20RunLoop%E7%AF%87/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yeenbin.github.io/2020/04/11/iOS%E9%9D%A2%E8%AF%95%20-%20RunLoop%E7%AF%87/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -484,7 +484,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2020 <a href="http://yoursite.com/" target="_blank">叶恩宾</a>
+    		&copy; 2018-2020 <a href="http://yeenbin.github.io/" target="_blank">叶恩宾</a>
     	</div>
       	<div class="footer-right">
 			

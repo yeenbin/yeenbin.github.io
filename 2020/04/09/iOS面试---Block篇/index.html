@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://yeenbin.github.io">
   <title>iOS面试---Block篇 | 叶恩宾的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,23 +13,23 @@
   <meta name="description" content="什么是Block ？  Block是将函数及其执行上下文封装起来的对象 block的结构体中含有isa指针  源码解析 使用 clang-rewrite-objc file.m 】">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试---Block篇">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;09&#x2F;iOS%E9%9D%A2%E8%AF%95---Block%E7%AF%87&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;2020&#x2F;04&#x2F;09&#x2F;iOS%E9%9D%A2%E8%AF%95---Block%E7%AF%87&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
 <meta property="og:description" content="什么是Block ？  Block是将函数及其执行上下文封装起来的对象 block的结构体中含有isa指针  源码解析 使用 clang-rewrite-objc file.m 】">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409151955286.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409152148020.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409152451599.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409162617641.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409162655596.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409164406748.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409164457678.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409164819868.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409164956529.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409165359224.png">
-<meta property="og:updated_time" content="2020-04-19T09:04:44.973Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409151955286.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409152148020.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409152451599.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409162617641.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409162655596.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409164406748.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409164457678.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409164819868.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409164956529.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409165359224.png">
+<meta property="og:updated_time" content="2020-04-19T09:07:39.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image-20200409151955286.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200409151955286.png">
   
     <link rel="alternative" href="/atom.xml" title="叶恩宾的博客" type="application/atom+xml">
   
@@ -152,7 +152,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="https://yeenbin.github.io" target="_blank" rel="noopener">主页</a></li>
+					<li style="width: 100%"><a href="https://yeenbin.github.io">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -327,7 +327,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/04/09/iOS面试---Block篇/" title="iOS面试---Block篇" target="_blank">http://yoursite.com/2020/04/09/iOS面试---Block篇/</a>
+          <a href="http://yeenbin.github.io/2020/04/09/iOS面试---Block篇/" title="iOS面试---Block篇" target="_blank">http://yeenbin.github.io/2020/04/09/iOS面试---Block篇/</a>
         </li>
         
         <li>
@@ -394,7 +394,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/09/iOS%E9%9D%A2%E8%AF%95---Block%E7%AF%87/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yeenbin.github.io/2020/04/09/iOS%E9%9D%A2%E8%AF%95---Block%E7%AF%87/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -463,7 +463,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2020 <a href="http://yoursite.com/" target="_blank">叶恩宾</a>
+    		&copy; 2018-2020 <a href="http://yeenbin.github.io/" target="_blank">叶恩宾</a>
     	</div>
       	<div class="footer-right">
 			
