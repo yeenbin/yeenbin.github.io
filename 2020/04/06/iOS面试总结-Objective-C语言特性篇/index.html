@@ -32,7 +32,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406201911930.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406202203166.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406203202661.png">
-<meta property="og:updated_time" content="2020-04-19T09:05:46.241Z">
+<meta property="og:updated_time" content="2020-04-20T02:51:10.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406105154223.png">
   
@@ -230,6 +230,7 @@
 </li>
 <li><p>把Framework的私有方法公开</p>
 <a id="more"></a>
+
 <p>分类的特点</p>
 </li>
 <li><p>运行时决议</p>
@@ -259,7 +260,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">objc_getAssociatedObject(id _Nonnull object, const void * _Nonnull key)</span><br><span class="line"> </span><br><span class="line">objc_setAssociatedObject(id _Nonnull object, const void * _Nonnull key,</span><br><span class="line">                         id _Nullable value, objc_AssociationPolicy policy)</span><br><span class="line">  </span><br><span class="line">objc_removeAssociatedObjects(id _Nonnull object)</span><br></pre></td></tr></table></figure>
 
 <p>那关联对象是在哪里呢？</p>
-<p>关联对象由AssocaitionsManager管理并在AssociationsHashMa存储</p>
+<p>关联对象由AssocaitionsManager管理并在AssociationsHashMap存储</p>
 <p>所有对象的关联内容都在同一个全局容器中。</p>
 <p><img src="/images/image-20200406175338607.png" alt=" "></p>
 <p><img src="/images/image-20200406175512871.png" alt=" "></p>
@@ -300,7 +301,7 @@
 </ul>
 <p><img src="/images/image-20200406181756869.png" alt=" "></p>
 <p><img src="/images/image-20200406182721445.png" alt=" "></p>
-<p>// 1. 通过kvc设置value能否生效出发监听？</p>
+<p>// 1. 通过kvc设置value能否生效触发监听？</p>
 <ul>
 <li>能</li>
 </ul>
@@ -311,18 +312,16 @@
 <p><img src="/images/image-20200406183533904.png" alt=" "></p>
 <p>可以用手动KVO进行修改以达到触发KVO监听的目的</p>
 <h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
-<li>使用settre方法改变值KVO才会生效</li>
+<li>使用setter方法改变值KVO才会生效</li>
 <li>使用setValue：forKey：改变值KVO才会生效</li>
 <li>成员变量直接修改需手动添加KVO才会生效</li>
 </ul>
 <p><img src="/images/image-20200406185341828.png" alt=" "></p>
 <p><img src="/images/image-20200406200132477.png" alt=" "></p>
 <h5 id="Accessor-Method"><a href="#Accessor-Method" class="headerlink" title="Accessor Method"></a>Accessor Method</h5><ul>
-<li><getKey></li>
-<li><key></li>
-<li><iskey>
-
-</li>
+<li>getKey</li>
+<li>key</li>
+<li>iskey</li>
 </ul>
 <h5 id="Instance-var"><a href="#Instance-var" class="headerlink" title="Instance var"></a>Instance var</h5><ul>
 <li>_key</li>
@@ -360,11 +359,8 @@
 </ul>
 </li>
 <li>weak<ul>
-<li>不该变被修饰对象的引用计数</li>
-<li>所指对象在被释放之后会自动置为nil<ul>
-<li>为什么会被置为nil《内存管理》章节讲</li>
-</ul>
-</li>
+<li>不改变被修饰对象的引用计数</li>
+<li>所指对象在被释放之后会自动置为nil</li>
 </ul>
 </li>
 </ul>
@@ -392,7 +388,7 @@
 <li>copy方法返回的都是不可变对象</li>
 </ul>
 <h5 id="请问-property-copy-NSMutableArray-array-会产生什么问题？"><a href="#请问-property-copy-NSMutableArray-array-会产生什么问题？" class="headerlink" title="请问@property(copy) NSMutableArray * array 会产生什么问题？"></a>请问@property(copy) NSMutableArray * array 会产生什么问题？</h5><ul>
-<li>如果赋值过来的是NSMutableArray，copy之后是浅拷贝的NSArray</li>
+<li>如果赋值过来的是NSMutableArray，copy之后是深拷贝的NSArray</li>
 <li>如果赋值过来的是NSArray，copy之后是NSArray</li>
 <li>拷贝之后都是不可变的，如果调用insert或者remove方法就会造成程序崩溃</li>
 </ul>
