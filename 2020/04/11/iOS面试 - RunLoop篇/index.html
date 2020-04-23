@@ -35,7 +35,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411113557999.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411113716342.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411115124127.png">
-<meta property="og:updated_time" content="2020-04-19T09:07:34.401Z">
+<meta property="og:updated_time" content="2020-04-23T03:51:17.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200411104447132.png">
   
@@ -224,19 +224,20 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="/images/image-20200411104447132.png" alt=" "></p>
-<p>如何实现一个常驻线程？</p>
+    <p>如何实现一个常驻线程？</p>
 <h4 id="什么是RunLoop"><a href="#什么是RunLoop" class="headerlink" title="什么是RunLoop ?"></a>什么是RunLoop ?</h4><ul>
 <li>RunLoop是通过内部维护的事件循环来对事件/消息进行管理的一个对象。</li>
 <li>事件循环 是没有消息需要处理时，休眠以避免资源占用<a id="more"></a>
+
+</li>
+</ul>
+<p><img src="/images/image-20200411104447132.png" alt=" "></p>
 <ul>
-<li><img src="/images/image-20200411104927847.png" alt=" "></li>
+<li><img src="/images/image-20200411104927847.png" alt=" "><ul>
+<li>有消息需要处理时，立刻被唤醒</li>
 </ul>
 </li>
-<li>有消息需要处理时，立刻被唤醒<ul>
 <li><img src="/images/image-20200411104937694.png" alt=" "></li>
-</ul>
-</li>
 </ul>
 <p><img src="/images/image-20200411105551583.png" alt=" "></p>
 <p> NSRunLoop是CFRunLoop的封装，提供了面向对象的API</p>

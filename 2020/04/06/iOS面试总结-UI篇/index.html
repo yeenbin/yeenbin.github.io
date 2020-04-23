@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="并发访问数据同步解决方案  2.串行队列访问">
+  <meta name="description" content="UIView和CALayer的关系   UIView为其提供内容，以及负责处理触摸等事件，参与响应链 CALayer负责显示内容Content 这区别体现了设计模式中的单一职责原则  2.并发访问数据同步解决方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS面试总结-UI篇">
 <meta property="og:url" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;2020&#x2F;04&#x2F;06&#x2F;iOS%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-UI%E7%AF%87&#x2F;index.html">
 <meta property="og:site_name" content="叶恩宾的博客">
-<meta property="og:description" content="并发访问数据同步解决方案  2.串行队列访问">
+<meta property="og:description" content="UIView和CALayer的关系   UIView为其提供内容，以及负责处理触摸等事件，参与响应链 CALayer负责显示内容Content 这区别体现了设计模式中的单一职责原则  2.并发访问数据同步解决方案">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406094632162.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406094822236.png">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406102916669.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406103102089.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406103352474.png">
-<meta property="og:updated_time" content="2020-04-19T09:05:49.991Z">
+<meta property="og:updated_time" content="2020-04-23T03:31:31.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200406094632162.png">
   
@@ -198,7 +198,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">404字</span>
+      <span class="post-count">407字</span>
     </span>
   </span>
 
@@ -218,26 +218,25 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>并发访问数据同步解决方案</p>
-<p><img src="/images/image-20200406094632162.png" alt=" "></p>
-<p>2.串行队列访问</p>
-<p><img src="/images/image-20200406094822236.png" alt=" "></p>
-<a id="more"></a>
-<p>并发访问数据拷贝和串行访问解决方案</p>
-<ol start="2">
-<li><p>UIView和CALayer的关系</p>
+    <ol>
+<li>UIView和CALayer的关系</li>
+</ol>
 <ul>
 <li>UIView为其提供内容，以及负责处理触摸等事件，参与响应链</li>
 <li>CALayer负责显示内容Content</li>
 <li>这区别体现了设计模式中的单一职责原则</li>
 </ul>
-</li>
-<li><p>事件传递与响应机制</p>
+<p>2.并发访问数据同步解决方案</p>
+<a id="more"></a>
+
+<p><img src="/images/image-20200406094632162.png" alt=" "></p>
+<p>  2.1串行队列访问</p>
+<p><img src="/images/image-20200406094822236.png" alt=" "></p>
+<p>并发访问数据拷贝和串行访问解决方案</p>
+<p>3.事件传递与响应机制</p>
 <p><img src="/images/image-20200406095433390.png" alt=" "></p>
-<p><img src="/images/image-20200406095624860.png" alt=" "></p>
-<p><img src="/images/image-20200406095851184.png" alt=" "></p>
-</li>
-</ol>
+<p> <img src="/images/image-20200406095624860.png" alt=" "></p>
+<p> <img src="/images/image-20200406095851184.png" alt=" "></p>
 <p><img src="/images/image-20200406100834767.png" alt=" "></p>
 <p><img src="/images/image-20200406101103489.png" alt=" "></p>
 <p>4.图像显示原理</p>

@@ -42,7 +42,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408164332752.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408165006272.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200408165359331.png">
-<meta property="og:updated_time" content="2020-04-19T09:05:39.939Z">
+<meta property="og:updated_time" content="2020-04-23T03:33:07.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yeenbin.github.io&#x2F;images&#x2F;image-20200407153853309.png">
   
@@ -231,9 +231,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="/images/image-20200407153853309.png" alt=" "></p>
-<p><img src="/images/image-20200407171351437.png" alt=" "></p>
-<h4 id="内存布局"><a href="#内存布局" class="headerlink" title="内存布局"></a>内存布局</h4><ul>
+    <h4 id="内存布局"><a href="#内存布局" class="headerlink" title="内存布局"></a>内存布局</h4><ul>
 <li>stack：方法调用</li>
 <li>heap：通过alloc等分配的对象</li>
 <li>bss： 未初始化的全局变量等。</li>
@@ -242,6 +240,8 @@
 </ul>
 <a id="more"></a>
 
+<p><img src="/images/image-20200407153853309.png" alt=" "></p>
+<p><img src="/images/image-20200407171351437.png" alt=" "></p>
 <h4 id="内存管理方案"><a href="#内存管理方案" class="headerlink" title="内存管理方案"></a>内存管理方案</h4><ul>
 <li>TaggedPointer</li>
 <li>NONPOINTER_ISA  非指针型ISA</li>
@@ -313,7 +313,7 @@
 <li>多层嵌套就是多次插入哨兵对象</li>
 <li>在for循环中alloc图片数据等内存消耗较大的场景手动插入autoreleasePool</li>
 </ul>
-<h3 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h3><ul>
+<h4 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h4><ul>
 <li><p>自循环引用</p>
 <p><img src="/images/image-20200408163839220.png" alt=" "></p>
 </li>
